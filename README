@@ -1,0 +1,1 @@
+This is a basic example of using .Net and a WCF service reference against the RegOnline API.  To use this example, build the project and run the \bin executable.  You will be prompted for login and password.  Your API token is displayed, followed by a listing of all events with active status created after 1/1/2011, sorted by ID ascending.
