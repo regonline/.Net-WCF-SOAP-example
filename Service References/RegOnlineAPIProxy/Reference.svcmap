@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a69fa261-a6b1-4b98-ba02-e4c4a9203ade" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4f17f4ff-6025-44e5-87ac-2e29531e9550" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://www.regonline.com/webservices/default.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://www.regonline.com/api/default.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="default.wsdl" MetadataType="Wsdl" ID="a946ca04-93ea-4a5d-95ac-e57c9b368667" SourceId="1" SourceUrl="http://www.regonline.com/webservices/default.asmx?wsdl" />
-    <MetadataFile FileName="default.disco" MetadataType="Disco" ID="16f672ed-0944-4867-aea6-a751c0ea9279" SourceId="1" SourceUrl="https://www.regonline.com/webservices/default.asmx?disco" />
+    <MetadataFile FileName="default.wsdl" MetadataType="Wsdl" ID="9b9a3bae-55af-416c-b538-741047ba4c7d" SourceId="1" SourceUrl="https://www.regonline.com/api/default.asmx?wsdl" />
+    <MetadataFile FileName="default.disco" MetadataType="Disco" ID="7a1bc194-3db8-4a9f-9eb4-bcd486657025" SourceId="1" SourceUrl="https://www.regonline.com/api/default.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

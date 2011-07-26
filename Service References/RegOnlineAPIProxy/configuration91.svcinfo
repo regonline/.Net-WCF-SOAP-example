@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="WdQP3rzNtHtDRZX84fE9liGrITU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="JBsoya5ABPxqVJcWoaZUqD5gU3U=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="RegOnline APISoap">
+    <bindingConfiguration bindingType="basicHttpBinding" name="RegOnline APISoap1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>RegOnline APISoap</serializedValue>
+          <serializedValue>RegOnline APISoap1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>00:01:00</serializedValue>
@@ -227,10 +227,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="RegOnline APISoap" contract="RegOnlineAPIProxy.RegOnlineAPISoap" bindingType="basicHttpBinding" address="http://www.regonline.com/webservices/default.asmx" bindingConfiguration="RegOnline APISoap">
+    <endpoint name="RegOnline APISoap1" contract="RegOnlineAPIProxy.RegOnlineAPISoap" bindingType="basicHttpBinding" address="http://www.regonline.com/api/default.asmx" bindingConfiguration="RegOnline APISoap1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://www.regonline.com/webservices/default.asmx</serializedValue>
+          <serializedValue>http://www.regonline.com/api/default.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -239,7 +239,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>RegOnline APISoap</serializedValue>
+          <serializedValue>RegOnline APISoap1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>RegOnlineAPIProxy.RegOnlineAPISoap</serializedValue>
@@ -302,7 +302,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>RegOnline APISoap</serializedValue>
+          <serializedValue>RegOnline APISoap1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -312,10 +312,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="RegOnline APISoap12" contract="RegOnlineAPIProxy.RegOnlineAPISoap" bindingType="customBinding" address="http://www.regonline.com/webservices/default.asmx" bindingConfiguration="RegOnline APISoap12">
+    <endpoint name="RegOnline APISoap12" contract="RegOnlineAPIProxy.RegOnlineAPISoap" bindingType="customBinding" address="http://www.regonline.com/api/default.asmx" bindingConfiguration="RegOnline APISoap12">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://www.regonline.com/webservices/default.asmx</serializedValue>
+          <serializedValue>http://www.regonline.com/api/default.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
