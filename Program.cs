@@ -29,7 +29,7 @@ namespace RegOnline.ConsoleAPISample
                     {
                         string apiToken = loginResults.Data.APIToken;
                         Console.WriteLine("apiToken = {0}", apiToken);
-                        
+
                         using (OperationContextScope scope = new OperationContextScope(service.InnerChannel))
                         {
                             //add APIToken HTTP Header
@@ -37,8 +37,9 @@ namespace RegOnline.ConsoleAPISample
                             apiTokenHeader.Headers.Add("APIToken", apiToken);
                             OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = apiTokenHeader;
 
-                            //call GetEvents for events with active status created after 1/1/2011, sorted by ID ascending
-                            RegOnlineAPIProxy.ResultsOfListOfEvent getEventResults = service.GetEvents("IsActive && AddDate >= DateTime(2011, 1, 1)", "ID ASC");
+                            // Call GetEvents for events with active status created after 1/1/2011, sorted by ID ascending.
+                            // With the API Token passed as an HTTP Header (above) instead of a SOAP Header, the first parameter for GetEvents below can be null.
+                            RegOnlineAPIProxy.ResultsOfListOfEvent getEventResults = service.GetEvents(null, "IsActive && AddDate >= DateTime(2011, 1, 1)", "ID ASC");
 
                             if (getEventResults.Success)
                             {

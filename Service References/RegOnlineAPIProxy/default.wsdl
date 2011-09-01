@@ -2,6 +2,108 @@
 <wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.regonline.com/api" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.regonline.com/api" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.regonline.com/api">
+      <s:element name="GetRegistrationsByEventID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegistrationsByEventIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationsByEventIDResult" type="tns:ResultsOfListOfRegistration" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultsOfListOfRegistration">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="tns:ArrayOfAPIRegistration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAPIRegistration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="APIRegistration" nillable="true" type="tns:APIRegistration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="APIRegistration">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RegistrationCommonFields">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="RegTypeID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegistrationType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegTypeDescription" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StatusID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Prefix" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Suffix" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BalanceDue" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CellPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CCEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BadgeName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Photo" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NationalityID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="RoomSharerID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MembershipID" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CheckedIn" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CancelDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="DirectoryOptOut" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsSubstitute" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AddBy" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AddDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModBy" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentDocNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RegistrationCommonFields">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AttendeeCommonFields" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AttendeeCommonFields">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EventCommonFields" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EventCommonFields" />
+      <s:element name="TokenHeader" type="tns:TokenHeader" />
+      <s:complexType name="TokenHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="APIToken" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
       <s:element name="Login">
         <s:complexType>
           <s:sequence>
@@ -109,6 +211,8 @@
               <s:element minOccurs="0" maxOccurs="1" name="MediaType" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="IsOnSite" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Latitude" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Longitude" nillable="true" type="s:decimal" />
               <s:element minOccurs="1" maxOccurs="1" name="TotalRevenue" nillable="true" type="s:decimal" />
               <s:element minOccurs="1" maxOccurs="1" name="TotalRegistrations" nillable="true" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="TotalCancels" nillable="true" type="s:int" />
@@ -119,7 +223,6 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="EventCommonFields" />
       <s:element name="GetPublicEvents">
         <s:complexType>
           <s:sequence>
@@ -163,100 +266,23 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetRegistrationsByAgenda">
+      <s:element name="GetRegistrationsForCustomField">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="cfid" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetRegistrationsByAgendaResponse">
+      <s:element name="GetRegistrationsForCustomFieldResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationsByAgendaResult" type="tns:ResultsOfListOfRegistration" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationsForCustomFieldResult" type="tns:ResultsOfListOfRegistration" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ResultsOfListOfRegistration">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
-          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Data" type="tns:ArrayOfAPIRegistration" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfAPIRegistration">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="APIRegistration" nillable="true" type="tns:APIRegistration" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="APIRegistration">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:RegistrationCommonFields">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="GroupID" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="RegTypeID" nillable="true" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="RegistrationType" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="RegTypeDescription" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="StatusID" nillable="true" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Prefix" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Suffix" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="BalanceDue" type="s:decimal" />
-              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="CellPhone" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="CCEmail" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="BadgeName" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Photo" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="DateOfBirth" nillable="true" type="s:dateTime" />
-              <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="NationalityID" nillable="true" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="Nationality" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="RoomSharerID" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="MembershipID" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="CheckedIn" nillable="true" type="s:boolean" />
-              <s:element minOccurs="1" maxOccurs="1" name="CancelDate" nillable="true" type="s:dateTime" />
-              <s:element minOccurs="1" maxOccurs="1" name="DirectoryOptOut" type="s:boolean" />
-              <s:element minOccurs="1" maxOccurs="1" name="IsSubstitute" type="s:boolean" />
-              <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="AddBy" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="AddDate" type="s:dateTime" />
-              <s:element minOccurs="0" maxOccurs="1" name="ModBy" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="ModDate" type="s:dateTime" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="RegistrationCommonFields">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:AttendeeCommonFields" />
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="AttendeeCommonFields">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:EventCommonFields" />
-        </s:complexContent>
-      </s:complexType>
       <s:element name="GetRegistration">
         <s:complexType>
           <s:sequence>
@@ -271,18 +297,19 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetRegistrationsByEventID">
+      <s:element name="GetRegistrationsForEvent">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetRegistrationsByEventIDResponse">
+      <s:element name="GetRegistrationsForEventResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationsByEventIDResult" type="tns:ResultsOfListOfRegistration" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegistrationsForEventResult" type="tns:ResultsOfListOfRegistration" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -316,17 +343,18 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetIncompleteRegistrationsByEventID">
+      <s:element name="GetIncompleteRegistrationsForEvent">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetIncompleteRegistrationsByEventIDResponse">
+      <s:element name="GetIncompleteRegistrationsForEventResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetIncompleteRegistrationsByEventIDResult" type="tns:ResultsOfListOfRegistration" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetIncompleteRegistrationsForEventResult" type="tns:ResultsOfListOfRegistration" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -383,21 +411,21 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:element name="GetTransactionByID">
+      <s:element name="GetTransaction">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetTransactionByIDResponse">
+      <s:element name="GetTransactionResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionByIDResult" type="tns:ResultsOfListOfTransaction" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionResult" type="tns:ResultsOfListOfTransaction" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetTransactionsByEventID">
+      <s:element name="GetTransactionsForEvent">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
@@ -405,10 +433,10 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetTransactionsByEventIDResponse">
+      <s:element name="GetTransactionsForEventResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionsByEventIDResult" type="tns:ResultsOfListOfTransaction" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionsForEventResult" type="tns:ResultsOfListOfTransaction" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -417,6 +445,7 @@
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="pageSectionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -451,32 +480,34 @@
           <s:element minOccurs="0" maxOccurs="1" name="Capacity" nillable="true" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetAgenda">
+      <s:element name="GetAgendaItems">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAgendaResponse">
+      <s:element name="GetAgendaItemsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAgendaResult" type="tns:ResultsOfListOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgendaItemsResult" type="tns:ResultsOfListOfCustomField" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAttendeeAgenda">
+      <s:element name="GetAgendaItemResponsesForRegistration">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="registrationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAttendeeAgendaResponse">
+      <s:element name="GetAgendaItemResponsesForRegistrationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAttendeeAgendaResult" type="tns:ResultsOfListOfCustomFieldResponse" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetAgendaItemResponsesForRegistrationResult" type="tns:ResultsOfListOfCustomFieldResponse" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -521,21 +552,23 @@
           <s:element minOccurs="0" maxOccurs="1" name="CustomFieldName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="CustomFieldStartDate" nillable="true" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="CustomFieldEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFieldLocation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CustomFieldTypeID" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:element name="UpdateAttendeeAgenda">
+      <s:element name="UpdateAgendaItemResponsesForRegistration">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="registrationID" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="agendaResponses" type="tns:ArrayOfAPICustomFieldResponse" />
+            <s:element minOccurs="0" maxOccurs="1" name="agendaItemResponses" type="tns:ArrayOfAPICustomFieldResponse" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateAttendeeAgendaResponse">
+      <s:element name="UpdateAgendaItemResponsesForRegistrationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAttendeeAgendaResult" type="tns:ResultsOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAgendaItemResponsesForRegistrationResult" type="tns:ResultsOfBoolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -546,38 +579,40 @@
           <s:element minOccurs="1" maxOccurs="1" name="Data" type="s:boolean" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetAgendaResponses">
+      <s:element name="GetCustomFieldResponses">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="cfid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cfID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAgendaResponsesResponse">
+      <s:element name="GetCustomFieldResponsesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAgendaResponsesResult" type="tns:ResultsOfListOfCustomFieldResponse" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomFieldResponsesResult" type="tns:ResultsOfListOfCustomFieldResponse" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAttendeeCustomFieldResponses">
+      <s:element name="GetCustomFieldResponsesForRegistration">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="registrationID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="pageSectionID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAttendeeCustomFieldResponsesResponse">
+      <s:element name="GetCustomFieldResponsesForRegistrationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAttendeeCustomFieldResponsesResult" type="tns:ResultsOfListOfCustomFieldResponse" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomFieldResponsesForRegistrationResult" type="tns:ResultsOfListOfCustomFieldResponse" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateAttendeeCustomFieldResponses">
+      <s:element name="UpdateCustomFieldResponsesForRegistration">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
@@ -586,40 +621,40 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateAttendeeCustomFieldResponsesResponse">
+      <s:element name="UpdateCustomFieldResponsesForRegistrationResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateAttendeeCustomFieldResponsesResult" type="tns:ResultsOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCustomFieldResponsesForRegistrationResult" type="tns:ResultsOfBoolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="CheckinAttendees">
+      <s:element name="CheckinRegistrationsForEvent">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="registrationIDs" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="CheckinAttendeesResponse">
+      <s:element name="CheckinRegistrationsForEventResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="CheckinAttendeesResult" type="tns:ResultsOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckinRegistrationsForEventResult" type="tns:ResultsOfBoolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="CheckinAgendaAttendees">
+      <s:element name="CheckinRegistrationsForAgendaItem">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="registrationIDs" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="cfid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agendaItemID" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="CheckinAgendaAttendeesResponse">
+      <s:element name="CheckinRegistrationsForAgendaItemResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="CheckinAgendaAttendeesResult" type="tns:ResultsOfBoolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckinRegistrationsForAgendaItemResult" type="tns:ResultsOfBoolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -637,15 +672,77 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetCustomReportsForEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomReportsForEventResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomReportsForEventResult" type="tns:ResultsOfListOfCustomReport" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultsOfListOfCustomReport">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="tns:ArrayOfAPICustomReport" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAPICustomReport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="APICustomReport" nillable="true" type="tns:APICustomReport" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="APICustomReport">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCustomReports">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomReportsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomReportsResult" type="tns:ResultsOfListOfCustomReport" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResultsOfListOfRegistration" nillable="true" type="tns:ResultsOfListOfRegistration" />
       <s:element name="ResultsOfLoginResults" nillable="true" type="tns:ResultsOfLoginResults" />
       <s:element name="ResultsOfListOfEvent" nillable="true" type="tns:ResultsOfListOfEvent" />
-      <s:element name="ResultsOfListOfRegistration" nillable="true" type="tns:ResultsOfListOfRegistration" />
       <s:element name="ResultsOfListOfTransaction" nillable="true" type="tns:ResultsOfListOfTransaction" />
       <s:element name="ResultsOfListOfCustomField" nillable="true" type="tns:ResultsOfListOfCustomField" />
       <s:element name="ResultsOfListOfCustomFieldResponse" nillable="true" type="tns:ResultsOfListOfCustomFieldResponse" />
       <s:element name="ResultsOfBoolean" nillable="true" type="tns:ResultsOfBoolean" />
+      <s:element name="ResultsOfListOfCustomReport" nillable="true" type="tns:ResultsOfListOfCustomReport" />
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="GetRegistrationsByEventIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegistrationsByEventID" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsByEventIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegistrationsByEventIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsByEventIDTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
   <wsdl:message name="LoginSoapIn">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -658,11 +755,17 @@
   <wsdl:message name="GetEventsSoapOut">
     <wsdl:part name="parameters" element="tns:GetEventsResponse" />
   </wsdl:message>
+  <wsdl:message name="GetEventsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
   <wsdl:message name="GetPublicEventsSoapIn">
     <wsdl:part name="parameters" element="tns:GetPublicEvents" />
   </wsdl:message>
   <wsdl:message name="GetPublicEventsSoapOut">
     <wsdl:part name="parameters" element="tns:GetPublicEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPublicEventsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="GetEventSoapIn">
     <wsdl:part name="parameters" element="tns:GetEvent" />
@@ -670,17 +773,26 @@
   <wsdl:message name="GetEventSoapOut">
     <wsdl:part name="parameters" element="tns:GetEventResponse" />
   </wsdl:message>
+  <wsdl:message name="GetEventTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
   <wsdl:message name="GetEventStatisticsSoapIn">
     <wsdl:part name="parameters" element="tns:GetEventStatistics" />
   </wsdl:message>
   <wsdl:message name="GetEventStatisticsSoapOut">
     <wsdl:part name="parameters" element="tns:GetEventStatisticsResponse" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByAgendaSoapIn">
-    <wsdl:part name="parameters" element="tns:GetRegistrationsByAgenda" />
+  <wsdl:message name="GetEventStatisticsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByAgendaSoapOut">
-    <wsdl:part name="parameters" element="tns:GetRegistrationsByAgendaResponse" />
+  <wsdl:message name="GetRegistrationsForCustomFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegistrationsForCustomField" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsForCustomFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegistrationsForCustomFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsForCustomFieldTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="GetRegistrationSoapIn">
     <wsdl:part name="parameters" element="tns:GetRegistration" />
@@ -688,11 +800,17 @@
   <wsdl:message name="GetRegistrationSoapOut">
     <wsdl:part name="parameters" element="tns:GetRegistrationResponse" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByEventIDSoapIn">
-    <wsdl:part name="parameters" element="tns:GetRegistrationsByEventID" />
+  <wsdl:message name="GetRegistrationTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByEventIDSoapOut">
-    <wsdl:part name="parameters" element="tns:GetRegistrationsByEventIDResponse" />
+  <wsdl:message name="GetRegistrationsForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegistrationsForEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegistrationsForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsForEventTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="GetRegistrationsSoapIn">
     <wsdl:part name="parameters" element="tns:GetRegistrations" />
@@ -700,17 +818,26 @@
   <wsdl:message name="GetRegistrationsSoapOut">
     <wsdl:part name="parameters" element="tns:GetRegistrationsResponse" />
   </wsdl:message>
+  <wsdl:message name="GetRegistrationsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
   <wsdl:message name="GetIncompleteRegistrationsSoapIn">
     <wsdl:part name="parameters" element="tns:GetIncompleteRegistrations" />
   </wsdl:message>
   <wsdl:message name="GetIncompleteRegistrationsSoapOut">
     <wsdl:part name="parameters" element="tns:GetIncompleteRegistrationsResponse" />
   </wsdl:message>
-  <wsdl:message name="GetIncompleteRegistrationsByEventIDSoapIn">
-    <wsdl:part name="parameters" element="tns:GetIncompleteRegistrationsByEventID" />
+  <wsdl:message name="GetIncompleteRegistrationsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="GetIncompleteRegistrationsByEventIDSoapOut">
-    <wsdl:part name="parameters" element="tns:GetIncompleteRegistrationsByEventIDResponse" />
+  <wsdl:message name="GetIncompleteRegistrationsForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIncompleteRegistrationsForEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetIncompleteRegistrationsForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIncompleteRegistrationsForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIncompleteRegistrationsForEventTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="GetTransactionsSoapIn">
     <wsdl:part name="parameters" element="tns:GetTransactions" />
@@ -718,17 +845,26 @@
   <wsdl:message name="GetTransactionsSoapOut">
     <wsdl:part name="parameters" element="tns:GetTransactionsResponse" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionByIDSoapIn">
-    <wsdl:part name="parameters" element="tns:GetTransactionByID" />
+  <wsdl:message name="GetTransactionsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionByIDSoapOut">
-    <wsdl:part name="parameters" element="tns:GetTransactionByIDResponse" />
+  <wsdl:message name="GetTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransaction" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionsByEventIDSoapIn">
-    <wsdl:part name="parameters" element="tns:GetTransactionsByEventID" />
+  <wsdl:message name="GetTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransactionResponse" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionsByEventIDSoapOut">
-    <wsdl:part name="parameters" element="tns:GetTransactionsByEventIDResponse" />
+  <wsdl:message name="GetTransactionTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionsForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransactionsForEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionsForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransactionsForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionsForEventTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="GetCustomFieldsSoapIn">
     <wsdl:part name="parameters" element="tns:GetCustomFields" />
@@ -736,59 +872,114 @@
   <wsdl:message name="GetCustomFieldsSoapOut">
     <wsdl:part name="parameters" element="tns:GetCustomFieldsResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAgenda" />
+  <wsdl:message name="GetCustomFieldsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAgendaResponse" />
+  <wsdl:message name="GetAgendaItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgendaItems" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeAgendaSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAttendeeAgenda" />
+  <wsdl:message name="GetAgendaItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgendaItemsResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeAgendaSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAttendeeAgendaResponse" />
+  <wsdl:message name="GetAgendaItemsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="UpdateAttendeeAgendaSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateAttendeeAgenda" />
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAgendaItemResponsesForRegistration" />
   </wsdl:message>
-  <wsdl:message name="UpdateAttendeeAgendaSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateAttendeeAgendaResponse" />
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAgendaItemResponsesForRegistrationResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaResponsesSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAgendaResponses" />
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaResponsesSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAgendaResponsesResponse" />
+  <wsdl:message name="UpdateAgendaItemResponsesForRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAgendaItemResponsesForRegistration" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeCustomFieldResponsesSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAttendeeCustomFieldResponses" />
+  <wsdl:message name="UpdateAgendaItemResponsesForRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAgendaItemResponsesForRegistrationResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeCustomFieldResponsesSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAttendeeCustomFieldResponsesResponse" />
+  <wsdl:message name="UpdateAgendaItemResponsesForRegistrationTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="UpdateAttendeeCustomFieldResponsesSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateAttendeeCustomFieldResponses" />
+  <wsdl:message name="GetCustomFieldResponsesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldResponses" />
   </wsdl:message>
-  <wsdl:message name="UpdateAttendeeCustomFieldResponsesSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateAttendeeCustomFieldResponsesResponse" />
+  <wsdl:message name="GetCustomFieldResponsesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldResponsesResponse" />
   </wsdl:message>
-  <wsdl:message name="CheckinAttendeesSoapIn">
-    <wsdl:part name="parameters" element="tns:CheckinAttendees" />
+  <wsdl:message name="GetCustomFieldResponsesTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
-  <wsdl:message name="CheckinAttendeesSoapOut">
-    <wsdl:part name="parameters" element="tns:CheckinAttendeesResponse" />
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldResponsesForRegistration" />
   </wsdl:message>
-  <wsdl:message name="CheckinAgendaAttendeesSoapIn">
-    <wsdl:part name="parameters" element="tns:CheckinAgendaAttendees" />
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldResponsesForRegistrationResponse" />
   </wsdl:message>
-  <wsdl:message name="CheckinAgendaAttendeesSoapOut">
-    <wsdl:part name="parameters" element="tns:CheckinAgendaAttendeesResponse" />
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomFieldResponsesForRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomFieldResponsesForRegistration" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomFieldResponsesForRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomFieldResponsesForRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomFieldResponsesForRegistrationTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckinRegistrationsForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckinRegistrationsForEvent" />
+  </wsdl:message>
+  <wsdl:message name="CheckinRegistrationsForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckinRegistrationsForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckinRegistrationsForEventTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckinRegistrationsForAgendaItemSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckinRegistrationsForAgendaItem" />
+  </wsdl:message>
+  <wsdl:message name="CheckinRegistrationsForAgendaItemSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckinRegistrationsForAgendaItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckinRegistrationsForAgendaItemTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="UpdateRegistrationSoapIn">
     <wsdl:part name="parameters" element="tns:UpdateRegistration" />
   </wsdl:message>
   <wsdl:message name="UpdateRegistrationSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRegistrationTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomReportsForEvent" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomReportsForEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomReports" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsByEventIDHttpGetIn">
+    <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="filter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsByEventIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="LoginHttpGetIn">
     <wsdl:part name="username" type="s:string" />
@@ -823,12 +1014,13 @@
   <wsdl:message name="GetEventStatisticsHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfEvent" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByAgendaHttpGetIn">
+  <wsdl:message name="GetRegistrationsForCustomFieldHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="cfid" type="s:string" />
     <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByAgendaHttpGetOut">
+  <wsdl:message name="GetRegistrationsForCustomFieldHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="GetRegistrationHttpGetIn">
@@ -837,11 +1029,12 @@
   <wsdl:message name="GetRegistrationHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByEventIDHttpGetIn">
+  <wsdl:message name="GetRegistrationsForEventHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByEventIDHttpGetOut">
+  <wsdl:message name="GetRegistrationsForEventHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="GetRegistrationsHttpGetIn">
@@ -858,10 +1051,11 @@
   <wsdl:message name="GetIncompleteRegistrationsHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
-  <wsdl:message name="GetIncompleteRegistrationsByEventIDHttpGetIn">
+  <wsdl:message name="GetIncompleteRegistrationsForEventHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetIncompleteRegistrationsByEventIDHttpGetOut">
+  <wsdl:message name="GetIncompleteRegistrationsForEventHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="GetTransactionsHttpGetIn">
@@ -871,67 +1065,94 @@
   <wsdl:message name="GetTransactionsHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfTransaction" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionByIDHttpGetIn">
+  <wsdl:message name="GetTransactionHttpGetIn">
     <wsdl:part name="ID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionByIDHttpGetOut">
+  <wsdl:message name="GetTransactionHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfTransaction" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionsByEventIDHttpGetIn">
+  <wsdl:message name="GetTransactionsForEventHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionsByEventIDHttpGetOut">
+  <wsdl:message name="GetTransactionsForEventHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfTransaction" />
   </wsdl:message>
   <wsdl:message name="GetCustomFieldsHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="pageSectionID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetCustomFieldsHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomField" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaHttpGetIn">
+  <wsdl:message name="GetAgendaItemsHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaHttpGetOut">
+  <wsdl:message name="GetAgendaItemsHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomField" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeAgendaHttpGetIn">
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="registrationID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeAgendaHttpGetOut">
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaResponsesHttpGetIn">
+  <wsdl:message name="GetCustomFieldResponsesHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
-    <wsdl:part name="cfid" type="s:string" />
+    <wsdl:part name="cfID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaResponsesHttpGetOut">
+  <wsdl:message name="GetCustomFieldResponsesHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeCustomFieldResponsesHttpGetIn">
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="registrationID" type="s:string" />
     <wsdl:part name="pageSectionID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeCustomFieldResponsesHttpGetOut">
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldResponse" />
   </wsdl:message>
-  <wsdl:message name="CheckinAttendeesHttpGetIn">
+  <wsdl:message name="CheckinRegistrationsForEventHttpGetIn">
     <wsdl:part name="registrationIDs" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="CheckinAttendeesHttpGetOut">
+  <wsdl:message name="CheckinRegistrationsForEventHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfBoolean" />
   </wsdl:message>
-  <wsdl:message name="CheckinAgendaAttendeesHttpGetIn">
+  <wsdl:message name="CheckinRegistrationsForAgendaItemHttpGetIn">
     <wsdl:part name="registrationIDs" type="s:string" />
-    <wsdl:part name="cfid" type="s:string" />
+    <wsdl:part name="agendaItemID" type="s:string" />
     <wsdl:part name="eventID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="CheckinAgendaAttendeesHttpGetOut">
+  <wsdl:message name="CheckinRegistrationsForAgendaItemHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfBoolean" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventHttpGetIn">
+    <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfCustomReport" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsHttpGetIn">
+    <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfCustomReport" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsByEventIDHttpPostIn">
+    <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="filter" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRegistrationsByEventIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="LoginHttpPostIn">
     <wsdl:part name="username" type="s:string" />
@@ -966,12 +1187,13 @@
   <wsdl:message name="GetEventStatisticsHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfEvent" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByAgendaHttpPostIn">
+  <wsdl:message name="GetRegistrationsForCustomFieldHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="cfid" type="s:string" />
     <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByAgendaHttpPostOut">
+  <wsdl:message name="GetRegistrationsForCustomFieldHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="GetRegistrationHttpPostIn">
@@ -980,11 +1202,12 @@
   <wsdl:message name="GetRegistrationHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByEventIDHttpPostIn">
+  <wsdl:message name="GetRegistrationsForEventHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetRegistrationsByEventIDHttpPostOut">
+  <wsdl:message name="GetRegistrationsForEventHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="GetRegistrationsHttpPostIn">
@@ -1001,10 +1224,11 @@
   <wsdl:message name="GetIncompleteRegistrationsHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
-  <wsdl:message name="GetIncompleteRegistrationsByEventIDHttpPostIn">
+  <wsdl:message name="GetIncompleteRegistrationsForEventHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetIncompleteRegistrationsByEventIDHttpPostOut">
+  <wsdl:message name="GetIncompleteRegistrationsForEventHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfRegistration" />
   </wsdl:message>
   <wsdl:message name="GetTransactionsHttpPostIn">
@@ -1014,69 +1238,94 @@
   <wsdl:message name="GetTransactionsHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfTransaction" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionByIDHttpPostIn">
+  <wsdl:message name="GetTransactionHttpPostIn">
     <wsdl:part name="ID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionByIDHttpPostOut">
+  <wsdl:message name="GetTransactionHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfTransaction" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionsByEventIDHttpPostIn">
+  <wsdl:message name="GetTransactionsForEventHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetTransactionsByEventIDHttpPostOut">
+  <wsdl:message name="GetTransactionsForEventHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfTransaction" />
   </wsdl:message>
   <wsdl:message name="GetCustomFieldsHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="pageSectionID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
   <wsdl:message name="GetCustomFieldsHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomField" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaHttpPostIn">
+  <wsdl:message name="GetAgendaItemsHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaHttpPostOut">
+  <wsdl:message name="GetAgendaItemsHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomField" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeAgendaHttpPostIn">
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="registrationID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeAgendaHttpPostOut">
+  <wsdl:message name="GetAgendaItemResponsesForRegistrationHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaResponsesHttpPostIn">
+  <wsdl:message name="GetCustomFieldResponsesHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
-    <wsdl:part name="cfid" type="s:string" />
+    <wsdl:part name="cfID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAgendaResponsesHttpPostOut">
+  <wsdl:message name="GetCustomFieldResponsesHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeCustomFieldResponsesHttpPostIn">
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="registrationID" type="s:string" />
     <wsdl:part name="pageSectionID" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="GetAttendeeCustomFieldResponsesHttpPostOut">
+  <wsdl:message name="GetCustomFieldResponsesForRegistrationHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldResponse" />
   </wsdl:message>
-  <wsdl:message name="CheckinAttendeesHttpPostIn">
+  <wsdl:message name="CheckinRegistrationsForEventHttpPostIn">
     <wsdl:part name="registrationIDs" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="CheckinAttendeesHttpPostOut">
+  <wsdl:message name="CheckinRegistrationsForEventHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfBoolean" />
   </wsdl:message>
-  <wsdl:message name="CheckinAgendaAttendeesHttpPostIn">
+  <wsdl:message name="CheckinRegistrationsForAgendaItemHttpPostIn">
     <wsdl:part name="registrationIDs" type="s:string" />
-    <wsdl:part name="cfid" type="s:string" />
+    <wsdl:part name="agendaItemID" type="s:string" />
     <wsdl:part name="eventID" type="s:string" />
   </wsdl:message>
-  <wsdl:message name="CheckinAgendaAttendeesHttpPostOut">
+  <wsdl:message name="CheckinRegistrationsForAgendaItemHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfBoolean" />
   </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventHttpPostIn">
+    <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsForEventHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfCustomReport" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsHttpPostIn">
+    <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomReportsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfCustomReport" />
+  </wsdl:message>
   <wsdl:portType name="RegOnline_x0020_APISoap">
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations By EventID</wsdl:documentation>
+      <wsdl:input message="tns:GetRegistrationsByEventIDSoapIn" />
+      <wsdl:output message="tns:GetRegistrationsByEventIDSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login via username and password</wsdl:documentation>
       <wsdl:input message="tns:LoginSoapIn" />
@@ -1102,20 +1351,20 @@
       <wsdl:input message="tns:GetEventStatisticsSoapIn" />
       <wsdl:output message="tns:GetEventStatisticsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
+    <wsdl:operation name="GetRegistrationsForCustomField">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations</wsdl:documentation>
-      <wsdl:input message="tns:GetRegistrationsByAgendaSoapIn" />
-      <wsdl:output message="tns:GetRegistrationsByAgendaSoapOut" />
+      <wsdl:input message="tns:GetRegistrationsForCustomFieldSoapIn" />
+      <wsdl:output message="tns:GetRegistrationsForCustomFieldSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a Registration by ID</wsdl:documentation>
       <wsdl:input message="tns:GetRegistrationSoapIn" />
       <wsdl:output message="tns:GetRegistrationSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
+    <wsdl:operation name="GetRegistrationsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations By EventID</wsdl:documentation>
-      <wsdl:input message="tns:GetRegistrationsByEventIDSoapIn" />
-      <wsdl:output message="tns:GetRegistrationsByEventIDSoapOut" />
+      <wsdl:input message="tns:GetRegistrationsForEventSoapIn" />
+      <wsdl:output message="tns:GetRegistrationsForEventSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistrations">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations</wsdl:documentation>
@@ -1127,78 +1376,93 @@
       <wsdl:input message="tns:GetIncompleteRegistrationsSoapIn" />
       <wsdl:output message="tns:GetIncompleteRegistrationsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Incomplete Registrations By Event ID</wsdl:documentation>
-      <wsdl:input message="tns:GetIncompleteRegistrationsByEventIDSoapIn" />
-      <wsdl:output message="tns:GetIncompleteRegistrationsByEventIDSoapOut" />
+      <wsdl:input message="tns:GetIncompleteRegistrationsForEventSoapIn" />
+      <wsdl:output message="tns:GetIncompleteRegistrationsForEventSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetTransactions">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Transactions</wsdl:documentation>
       <wsdl:input message="tns:GetTransactionsSoapIn" />
       <wsdl:output message="tns:GetTransactionsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
+    <wsdl:operation name="GetTransaction">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a transaction by its ID</wsdl:documentation>
-      <wsdl:input message="tns:GetTransactionByIDSoapIn" />
-      <wsdl:output message="tns:GetTransactionByIDSoapOut" />
+      <wsdl:input message="tns:GetTransactionSoapIn" />
+      <wsdl:output message="tns:GetTransactionSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
+    <wsdl:operation name="GetTransactionsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all transactions for an event</wsdl:documentation>
-      <wsdl:input message="tns:GetTransactionsByEventIDSoapIn" />
-      <wsdl:output message="tns:GetTransactionsByEventIDSoapOut" />
+      <wsdl:input message="tns:GetTransactionsForEventSoapIn" />
+      <wsdl:output message="tns:GetTransactionsForEventSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCustomFields">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Custom Fields for Event and Location</wsdl:documentation>
       <wsdl:input message="tns:GetCustomFieldsSoapIn" />
       <wsdl:output message="tns:GetCustomFieldsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
+    <wsdl:operation name="GetAgendaItems">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Event Schedule</wsdl:documentation>
-      <wsdl:input message="tns:GetAgendaSoapIn" />
-      <wsdl:output message="tns:GetAgendaSoapOut" />
+      <wsdl:input message="tns:GetAgendaItemsSoapIn" />
+      <wsdl:output message="tns:GetAgendaItemsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Attendee's Schedule</wsdl:documentation>
-      <wsdl:input message="tns:GetAttendeeAgendaSoapIn" />
-      <wsdl:output message="tns:GetAttendeeAgendaSoapOut" />
+      <wsdl:input message="tns:GetAgendaItemResponsesForRegistrationSoapIn" />
+      <wsdl:output message="tns:GetAgendaItemResponsesForRegistrationSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateAttendeeAgenda">
+    <wsdl:operation name="UpdateAgendaItemResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the agenda item responses of registration</wsdl:documentation>
-      <wsdl:input message="tns:UpdateAttendeeAgendaSoapIn" />
-      <wsdl:output message="tns:UpdateAttendeeAgendaSoapOut" />
+      <wsdl:input message="tns:UpdateAgendaItemResponsesForRegistrationSoapIn" />
+      <wsdl:output message="tns:UpdateAgendaItemResponsesForRegistrationSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
+    <wsdl:operation name="GetCustomFieldResponses">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all responses for an agenda item</wsdl:documentation>
-      <wsdl:input message="tns:GetAgendaResponsesSoapIn" />
-      <wsdl:output message="tns:GetAgendaResponsesSoapOut" />
+      <wsdl:input message="tns:GetCustomFieldResponsesSoapIn" />
+      <wsdl:output message="tns:GetCustomFieldResponsesSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets custom field responses for a registration</wsdl:documentation>
-      <wsdl:input message="tns:GetAttendeeCustomFieldResponsesSoapIn" />
-      <wsdl:output message="tns:GetAttendeeCustomFieldResponsesSoapOut" />
+      <wsdl:input message="tns:GetCustomFieldResponsesForRegistrationSoapIn" />
+      <wsdl:output message="tns:GetCustomFieldResponsesForRegistrationSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateAttendeeCustomFieldResponses">
+    <wsdl:operation name="UpdateCustomFieldResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the custom fields of registrations</wsdl:documentation>
-      <wsdl:input message="tns:UpdateAttendeeCustomFieldResponsesSoapIn" />
-      <wsdl:output message="tns:UpdateAttendeeCustomFieldResponsesSoapOut" />
+      <wsdl:input message="tns:UpdateCustomFieldResponsesForRegistrationSoapIn" />
+      <wsdl:output message="tns:UpdateCustomFieldResponsesForRegistrationSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected attendees</wsdl:documentation>
-      <wsdl:input message="tns:CheckinAttendeesSoapIn" />
-      <wsdl:output message="tns:CheckinAttendeesSoapOut" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected registrations</wsdl:documentation>
+      <wsdl:input message="tns:CheckinRegistrationsForEventSoapIn" />
+      <wsdl:output message="tns:CheckinRegistrationsForEventSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected attendees</wsdl:documentation>
-      <wsdl:input message="tns:CheckinAgendaAttendeesSoapIn" />
-      <wsdl:output message="tns:CheckinAgendaAttendeesSoapOut" />
+      <wsdl:input message="tns:CheckinRegistrationsForAgendaItemSoapIn" />
+      <wsdl:output message="tns:CheckinRegistrationsForAgendaItemSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UpdateRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the standard fields of a registration</wsdl:documentation>
       <wsdl:input message="tns:UpdateRegistrationSoapIn" />
       <wsdl:output message="tns:UpdateRegistrationSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets CustomReports By EventID</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomReportsForEventSoapIn" />
+      <wsdl:output message="tns:GetCustomReportsForEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets CustomReports</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomReportsSoapIn" />
+      <wsdl:output message="tns:GetCustomReportsSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="RegOnline_x0020_APIHttpGet">
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations By EventID</wsdl:documentation>
+      <wsdl:input message="tns:GetRegistrationsByEventIDHttpGetIn" />
+      <wsdl:output message="tns:GetRegistrationsByEventIDHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login via username and password</wsdl:documentation>
       <wsdl:input message="tns:LoginHttpGetIn" />
@@ -1224,20 +1488,20 @@
       <wsdl:input message="tns:GetEventStatisticsHttpGetIn" />
       <wsdl:output message="tns:GetEventStatisticsHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
+    <wsdl:operation name="GetRegistrationsForCustomField">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations</wsdl:documentation>
-      <wsdl:input message="tns:GetRegistrationsByAgendaHttpGetIn" />
-      <wsdl:output message="tns:GetRegistrationsByAgendaHttpGetOut" />
+      <wsdl:input message="tns:GetRegistrationsForCustomFieldHttpGetIn" />
+      <wsdl:output message="tns:GetRegistrationsForCustomFieldHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a Registration by ID</wsdl:documentation>
       <wsdl:input message="tns:GetRegistrationHttpGetIn" />
       <wsdl:output message="tns:GetRegistrationHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
+    <wsdl:operation name="GetRegistrationsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations By EventID</wsdl:documentation>
-      <wsdl:input message="tns:GetRegistrationsByEventIDHttpGetIn" />
-      <wsdl:output message="tns:GetRegistrationsByEventIDHttpGetOut" />
+      <wsdl:input message="tns:GetRegistrationsForEventHttpGetIn" />
+      <wsdl:output message="tns:GetRegistrationsForEventHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistrations">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations</wsdl:documentation>
@@ -1249,63 +1513,78 @@
       <wsdl:input message="tns:GetIncompleteRegistrationsHttpGetIn" />
       <wsdl:output message="tns:GetIncompleteRegistrationsHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Incomplete Registrations By Event ID</wsdl:documentation>
-      <wsdl:input message="tns:GetIncompleteRegistrationsByEventIDHttpGetIn" />
-      <wsdl:output message="tns:GetIncompleteRegistrationsByEventIDHttpGetOut" />
+      <wsdl:input message="tns:GetIncompleteRegistrationsForEventHttpGetIn" />
+      <wsdl:output message="tns:GetIncompleteRegistrationsForEventHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetTransactions">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Transactions</wsdl:documentation>
       <wsdl:input message="tns:GetTransactionsHttpGetIn" />
       <wsdl:output message="tns:GetTransactionsHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
+    <wsdl:operation name="GetTransaction">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a transaction by its ID</wsdl:documentation>
-      <wsdl:input message="tns:GetTransactionByIDHttpGetIn" />
-      <wsdl:output message="tns:GetTransactionByIDHttpGetOut" />
+      <wsdl:input message="tns:GetTransactionHttpGetIn" />
+      <wsdl:output message="tns:GetTransactionHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
+    <wsdl:operation name="GetTransactionsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all transactions for an event</wsdl:documentation>
-      <wsdl:input message="tns:GetTransactionsByEventIDHttpGetIn" />
-      <wsdl:output message="tns:GetTransactionsByEventIDHttpGetOut" />
+      <wsdl:input message="tns:GetTransactionsForEventHttpGetIn" />
+      <wsdl:output message="tns:GetTransactionsForEventHttpGetOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCustomFields">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Custom Fields for Event and Location</wsdl:documentation>
       <wsdl:input message="tns:GetCustomFieldsHttpGetIn" />
       <wsdl:output message="tns:GetCustomFieldsHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
+    <wsdl:operation name="GetAgendaItems">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Event Schedule</wsdl:documentation>
-      <wsdl:input message="tns:GetAgendaHttpGetIn" />
-      <wsdl:output message="tns:GetAgendaHttpGetOut" />
+      <wsdl:input message="tns:GetAgendaItemsHttpGetIn" />
+      <wsdl:output message="tns:GetAgendaItemsHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Attendee's Schedule</wsdl:documentation>
-      <wsdl:input message="tns:GetAttendeeAgendaHttpGetIn" />
-      <wsdl:output message="tns:GetAttendeeAgendaHttpGetOut" />
+      <wsdl:input message="tns:GetAgendaItemResponsesForRegistrationHttpGetIn" />
+      <wsdl:output message="tns:GetAgendaItemResponsesForRegistrationHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
+    <wsdl:operation name="GetCustomFieldResponses">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all responses for an agenda item</wsdl:documentation>
-      <wsdl:input message="tns:GetAgendaResponsesHttpGetIn" />
-      <wsdl:output message="tns:GetAgendaResponsesHttpGetOut" />
+      <wsdl:input message="tns:GetCustomFieldResponsesHttpGetIn" />
+      <wsdl:output message="tns:GetCustomFieldResponsesHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets custom field responses for a registration</wsdl:documentation>
-      <wsdl:input message="tns:GetAttendeeCustomFieldResponsesHttpGetIn" />
-      <wsdl:output message="tns:GetAttendeeCustomFieldResponsesHttpGetOut" />
+      <wsdl:input message="tns:GetCustomFieldResponsesForRegistrationHttpGetIn" />
+      <wsdl:output message="tns:GetCustomFieldResponsesForRegistrationHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected attendees</wsdl:documentation>
-      <wsdl:input message="tns:CheckinAttendeesHttpGetIn" />
-      <wsdl:output message="tns:CheckinAttendeesHttpGetOut" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected registrations</wsdl:documentation>
+      <wsdl:input message="tns:CheckinRegistrationsForEventHttpGetIn" />
+      <wsdl:output message="tns:CheckinRegistrationsForEventHttpGetOut" />
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected attendees</wsdl:documentation>
-      <wsdl:input message="tns:CheckinAgendaAttendeesHttpGetIn" />
-      <wsdl:output message="tns:CheckinAgendaAttendeesHttpGetOut" />
+      <wsdl:input message="tns:CheckinRegistrationsForAgendaItemHttpGetIn" />
+      <wsdl:output message="tns:CheckinRegistrationsForAgendaItemHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets CustomReports By EventID</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomReportsForEventHttpGetIn" />
+      <wsdl:output message="tns:GetCustomReportsForEventHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets CustomReports</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomReportsHttpGetIn" />
+      <wsdl:output message="tns:GetCustomReportsHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="RegOnline_x0020_APIHttpPost">
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations By EventID</wsdl:documentation>
+      <wsdl:input message="tns:GetRegistrationsByEventIDHttpPostIn" />
+      <wsdl:output message="tns:GetRegistrationsByEventIDHttpPostOut" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login via username and password</wsdl:documentation>
       <wsdl:input message="tns:LoginHttpPostIn" />
@@ -1331,20 +1610,20 @@
       <wsdl:input message="tns:GetEventStatisticsHttpPostIn" />
       <wsdl:output message="tns:GetEventStatisticsHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
+    <wsdl:operation name="GetRegistrationsForCustomField">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations</wsdl:documentation>
-      <wsdl:input message="tns:GetRegistrationsByAgendaHttpPostIn" />
-      <wsdl:output message="tns:GetRegistrationsByAgendaHttpPostOut" />
+      <wsdl:input message="tns:GetRegistrationsForCustomFieldHttpPostIn" />
+      <wsdl:output message="tns:GetRegistrationsForCustomFieldHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a Registration by ID</wsdl:documentation>
       <wsdl:input message="tns:GetRegistrationHttpPostIn" />
       <wsdl:output message="tns:GetRegistrationHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
+    <wsdl:operation name="GetRegistrationsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations By EventID</wsdl:documentation>
-      <wsdl:input message="tns:GetRegistrationsByEventIDHttpPostIn" />
-      <wsdl:output message="tns:GetRegistrationsByEventIDHttpPostOut" />
+      <wsdl:input message="tns:GetRegistrationsForEventHttpPostIn" />
+      <wsdl:output message="tns:GetRegistrationsForEventHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetRegistrations">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Registrations</wsdl:documentation>
@@ -1356,64 +1635,84 @@
       <wsdl:input message="tns:GetIncompleteRegistrationsHttpPostIn" />
       <wsdl:output message="tns:GetIncompleteRegistrationsHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Incomplete Registrations By Event ID</wsdl:documentation>
-      <wsdl:input message="tns:GetIncompleteRegistrationsByEventIDHttpPostIn" />
-      <wsdl:output message="tns:GetIncompleteRegistrationsByEventIDHttpPostOut" />
+      <wsdl:input message="tns:GetIncompleteRegistrationsForEventHttpPostIn" />
+      <wsdl:output message="tns:GetIncompleteRegistrationsForEventHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetTransactions">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Transactions</wsdl:documentation>
       <wsdl:input message="tns:GetTransactionsHttpPostIn" />
       <wsdl:output message="tns:GetTransactionsHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
+    <wsdl:operation name="GetTransaction">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a transaction by its ID</wsdl:documentation>
-      <wsdl:input message="tns:GetTransactionByIDHttpPostIn" />
-      <wsdl:output message="tns:GetTransactionByIDHttpPostOut" />
+      <wsdl:input message="tns:GetTransactionHttpPostIn" />
+      <wsdl:output message="tns:GetTransactionHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
+    <wsdl:operation name="GetTransactionsForEvent">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all transactions for an event</wsdl:documentation>
-      <wsdl:input message="tns:GetTransactionsByEventIDHttpPostIn" />
-      <wsdl:output message="tns:GetTransactionsByEventIDHttpPostOut" />
+      <wsdl:input message="tns:GetTransactionsForEventHttpPostIn" />
+      <wsdl:output message="tns:GetTransactionsForEventHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCustomFields">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Custom Fields for Event and Location</wsdl:documentation>
       <wsdl:input message="tns:GetCustomFieldsHttpPostIn" />
       <wsdl:output message="tns:GetCustomFieldsHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
+    <wsdl:operation name="GetAgendaItems">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Event Schedule</wsdl:documentation>
-      <wsdl:input message="tns:GetAgendaHttpPostIn" />
-      <wsdl:output message="tns:GetAgendaHttpPostOut" />
+      <wsdl:input message="tns:GetAgendaItemsHttpPostIn" />
+      <wsdl:output message="tns:GetAgendaItemsHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Attendee's Schedule</wsdl:documentation>
-      <wsdl:input message="tns:GetAttendeeAgendaHttpPostIn" />
-      <wsdl:output message="tns:GetAttendeeAgendaHttpPostOut" />
+      <wsdl:input message="tns:GetAgendaItemResponsesForRegistrationHttpPostIn" />
+      <wsdl:output message="tns:GetAgendaItemResponsesForRegistrationHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
+    <wsdl:operation name="GetCustomFieldResponses">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all responses for an agenda item</wsdl:documentation>
-      <wsdl:input message="tns:GetAgendaResponsesHttpPostIn" />
-      <wsdl:output message="tns:GetAgendaResponsesHttpPostOut" />
+      <wsdl:input message="tns:GetCustomFieldResponsesHttpPostIn" />
+      <wsdl:output message="tns:GetCustomFieldResponsesHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets custom field responses for a registration</wsdl:documentation>
-      <wsdl:input message="tns:GetAttendeeCustomFieldResponsesHttpPostIn" />
-      <wsdl:output message="tns:GetAttendeeCustomFieldResponsesHttpPostOut" />
+      <wsdl:input message="tns:GetCustomFieldResponsesForRegistrationHttpPostIn" />
+      <wsdl:output message="tns:GetCustomFieldResponsesForRegistrationHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected attendees</wsdl:documentation>
-      <wsdl:input message="tns:CheckinAttendeesHttpPostIn" />
-      <wsdl:output message="tns:CheckinAttendeesHttpPostOut" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected registrations</wsdl:documentation>
+      <wsdl:input message="tns:CheckinRegistrationsForEventHttpPostIn" />
+      <wsdl:output message="tns:CheckinRegistrationsForEventHttpPostOut" />
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks in selected attendees</wsdl:documentation>
-      <wsdl:input message="tns:CheckinAgendaAttendeesHttpPostIn" />
-      <wsdl:output message="tns:CheckinAgendaAttendeesHttpPostOut" />
+      <wsdl:input message="tns:CheckinRegistrationsForAgendaItemHttpPostIn" />
+      <wsdl:output message="tns:CheckinRegistrationsForAgendaItemHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets CustomReports By EventID</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomReportsForEventHttpPostIn" />
+      <wsdl:output message="tns:GetCustomReportsForEventHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets CustomReports</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomReportsHttpPostIn" />
+      <wsdl:output message="tns:GetCustomReportsHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="RegOnline_x0020_APISoap" type="tns:RegOnline_x0020_APISoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <soap:operation soapAction="http://www.regonline.com/api/GetRegistrationsByEventID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRegistrationsByEventIDTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://www.regonline.com/api/Login" style="document" />
       <wsdl:input>
@@ -1427,6 +1726,7 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetEvents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetEventsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1436,6 +1736,7 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetPublicEvents" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetPublicEventsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1445,6 +1746,7 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1454,15 +1756,17 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetEventStatistics" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetEventStatisticsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
-      <soap:operation soapAction="http://www.regonline.com/api/GetRegistrationsByAgenda" style="document" />
+    <wsdl:operation name="GetRegistrationsForCustomField">
+      <soap:operation soapAction="http://www.regonline.com/api/GetRegistrationsForCustomField" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetRegistrationsForCustomFieldTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1472,15 +1776,17 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetRegistration" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
-      <soap:operation soapAction="http://www.regonline.com/api/GetRegistrationsByEventID" style="document" />
+    <wsdl:operation name="GetRegistrationsForEvent">
+      <soap:operation soapAction="http://www.regonline.com/api/GetRegistrationsForEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetRegistrationsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1490,6 +1796,7 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetRegistrations" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetRegistrationsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1499,15 +1806,17 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetIncompleteRegistrations" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetIncompleteRegistrationsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
-      <soap:operation soapAction="http://www.regonline.com/api/GetIncompleteRegistrationsByEventID" style="document" />
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
+      <soap:operation soapAction="http://www.regonline.com/api/GetIncompleteRegistrationsForEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetIncompleteRegistrationsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1517,24 +1826,27 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetTransactions" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetTransactionsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
-      <soap:operation soapAction="http://www.regonline.com/api/GetTransactionByID" style="document" />
+    <wsdl:operation name="GetTransaction">
+      <soap:operation soapAction="http://www.regonline.com/api/GetTransaction" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetTransactionTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
-      <soap:operation soapAction="http://www.regonline.com/api/GetTransactionsByEventID" style="document" />
+    <wsdl:operation name="GetTransactionsForEvent">
+      <soap:operation soapAction="http://www.regonline.com/api/GetTransactionsForEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetTransactionsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1544,78 +1856,87 @@
       <soap:operation soapAction="http://www.regonline.com/api/GetCustomFields" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetCustomFieldsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
-      <soap:operation soapAction="http://www.regonline.com/api/GetAgenda" style="document" />
+    <wsdl:operation name="GetAgendaItems">
+      <soap:operation soapAction="http://www.regonline.com/api/GetAgendaItems" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetAgendaItemsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
-      <soap:operation soapAction="http://www.regonline.com/api/GetAttendeeAgenda" style="document" />
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
+      <soap:operation soapAction="http://www.regonline.com/api/GetAgendaItemResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetAgendaItemResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAttendeeAgenda">
-      <soap:operation soapAction="http://www.regonline.com/api/UpdateAttendeeAgenda" style="document" />
+    <wsdl:operation name="UpdateAgendaItemResponsesForRegistration">
+      <soap:operation soapAction="http://www.regonline.com/api/UpdateAgendaItemResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:UpdateAgendaItemResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
-      <soap:operation soapAction="http://www.regonline.com/api/GetAgendaResponses" style="document" />
+    <wsdl:operation name="GetCustomFieldResponses">
+      <soap:operation soapAction="http://www.regonline.com/api/GetCustomFieldResponses" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetCustomFieldResponsesTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
-      <soap:operation soapAction="http://www.regonline.com/api/GetAttendeeCustomFieldResponses" style="document" />
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
+      <soap:operation soapAction="http://www.regonline.com/api/GetCustomFieldResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:GetCustomFieldResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAttendeeCustomFieldResponses">
-      <soap:operation soapAction="http://www.regonline.com/api/UpdateAttendeeCustomFieldResponses" style="document" />
+    <wsdl:operation name="UpdateCustomFieldResponsesForRegistration">
+      <soap:operation soapAction="http://www.regonline.com/api/UpdateCustomFieldResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:UpdateCustomFieldResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <soap:operation soapAction="http://www.regonline.com/api/CheckinAttendees" style="document" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <soap:operation soapAction="http://www.regonline.com/api/CheckinRegistrationsForEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:CheckinRegistrationsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
-      <soap:operation soapAction="http://www.regonline.com/api/CheckinAgendaAttendees" style="document" />
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
+      <soap:operation soapAction="http://www.regonline.com/api/CheckinRegistrationsForAgendaItem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:CheckinRegistrationsForAgendaItemTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1625,6 +1946,27 @@
       <soap:operation soapAction="http://www.regonline.com/api/UpdateRegistration" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
+        <soap:header message="tns:UpdateRegistrationTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <soap:operation soapAction="http://www.regonline.com/api/GetCustomReportsForEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCustomReportsForEventTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <soap:operation soapAction="http://www.regonline.com/api/GetCustomReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCustomReportsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -1633,6 +1975,16 @@
   </wsdl:binding>
   <wsdl:binding name="RegOnline_x0020_APISoap12" type="tns:RegOnline_x0020_APISoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetRegistrationsByEventID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRegistrationsByEventIDTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://www.regonline.com/api/Login" style="document" />
       <wsdl:input>
@@ -1646,6 +1998,7 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetEvents" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetEventsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1655,6 +2008,7 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetPublicEvents" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetPublicEventsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1664,6 +2018,7 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1673,15 +2028,17 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetEventStatistics" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetEventStatisticsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetRegistrationsByAgenda" style="document" />
+    <wsdl:operation name="GetRegistrationsForCustomField">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetRegistrationsForCustomField" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetRegistrationsForCustomFieldTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1691,15 +2048,17 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetRegistration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetRegistrationsByEventID" style="document" />
+    <wsdl:operation name="GetRegistrationsForEvent">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetRegistrationsForEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetRegistrationsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1709,6 +2068,7 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetRegistrations" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetRegistrationsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1718,15 +2078,17 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetIncompleteRegistrations" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetIncompleteRegistrationsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetIncompleteRegistrationsByEventID" style="document" />
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetIncompleteRegistrationsForEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetIncompleteRegistrationsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1736,24 +2098,27 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetTransactions" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransactionsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetTransactionByID" style="document" />
+    <wsdl:operation name="GetTransaction">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetTransaction" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransactionTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetTransactionsByEventID" style="document" />
+    <wsdl:operation name="GetTransactionsForEvent">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetTransactionsForEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetTransactionsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1763,78 +2128,87 @@
       <soap12:operation soapAction="http://www.regonline.com/api/GetCustomFields" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomFieldsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetAgenda" style="document" />
+    <wsdl:operation name="GetAgendaItems">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetAgendaItems" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetAgendaItemsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetAttendeeAgenda" style="document" />
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetAgendaItemResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetAgendaItemResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAttendeeAgenda">
-      <soap12:operation soapAction="http://www.regonline.com/api/UpdateAttendeeAgenda" style="document" />
+    <wsdl:operation name="UpdateAgendaItemResponsesForRegistration">
+      <soap12:operation soapAction="http://www.regonline.com/api/UpdateAgendaItemResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateAgendaItemResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetAgendaResponses" style="document" />
+    <wsdl:operation name="GetCustomFieldResponses">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetCustomFieldResponses" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomFieldResponsesTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
-      <soap12:operation soapAction="http://www.regonline.com/api/GetAttendeeCustomFieldResponses" style="document" />
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetCustomFieldResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomFieldResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateAttendeeCustomFieldResponses">
-      <soap12:operation soapAction="http://www.regonline.com/api/UpdateAttendeeCustomFieldResponses" style="document" />
+    <wsdl:operation name="UpdateCustomFieldResponsesForRegistration">
+      <soap12:operation soapAction="http://www.regonline.com/api/UpdateCustomFieldResponsesForRegistration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateCustomFieldResponsesForRegistrationTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <soap12:operation soapAction="http://www.regonline.com/api/CheckinAttendees" style="document" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <soap12:operation soapAction="http://www.regonline.com/api/CheckinRegistrationsForEvent" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:CheckinRegistrationsForEventTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
-      <soap12:operation soapAction="http://www.regonline.com/api/CheckinAgendaAttendees" style="document" />
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
+      <soap12:operation soapAction="http://www.regonline.com/api/CheckinRegistrationsForAgendaItem" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:CheckinRegistrationsForAgendaItemTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1844,6 +2218,27 @@
       <soap12:operation soapAction="http://www.regonline.com/api/UpdateRegistration" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateRegistrationTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetCustomReportsForEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomReportsForEventTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetCustomReports" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomReportsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -1852,6 +2247,15 @@
   </wsdl:binding>
   <wsdl:binding name="RegOnline_x0020_APIHttpGet" type="tns:RegOnline_x0020_APIHttpGet">
     <http:binding verb="GET" />
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <http:operation location="/GetRegistrationsByEventID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <http:operation location="/Login" />
       <wsdl:input>
@@ -1897,8 +2301,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
-      <http:operation location="/GetRegistrationsByAgenda" />
+    <wsdl:operation name="GetRegistrationsForCustomField">
+      <http:operation location="/GetRegistrationsForCustomField" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1915,8 +2319,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
-      <http:operation location="/GetRegistrationsByEventID" />
+    <wsdl:operation name="GetRegistrationsForEvent">
+      <http:operation location="/GetRegistrationsForEvent" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1942,8 +2346,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
-      <http:operation location="/GetIncompleteRegistrationsByEventID" />
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
+      <http:operation location="/GetIncompleteRegistrationsForEvent" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1960,8 +2364,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
-      <http:operation location="/GetTransactionByID" />
+    <wsdl:operation name="GetTransaction">
+      <http:operation location="/GetTransaction" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1969,8 +2373,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
-      <http:operation location="/GetTransactionsByEventID" />
+    <wsdl:operation name="GetTransactionsForEvent">
+      <http:operation location="/GetTransactionsForEvent" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1987,8 +2391,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
-      <http:operation location="/GetAgenda" />
+    <wsdl:operation name="GetAgendaItems">
+      <http:operation location="/GetAgendaItems" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -1996,8 +2400,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
-      <http:operation location="/GetAttendeeAgenda" />
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
+      <http:operation location="/GetAgendaItemResponsesForRegistration" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -2005,8 +2409,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
-      <http:operation location="/GetAgendaResponses" />
+    <wsdl:operation name="GetCustomFieldResponses">
+      <http:operation location="/GetCustomFieldResponses" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -2014,8 +2418,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
-      <http:operation location="/GetAttendeeCustomFieldResponses" />
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
+      <http:operation location="/GetCustomFieldResponsesForRegistration" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -2023,8 +2427,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <http:operation location="/CheckinAttendees" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <http:operation location="/CheckinRegistrationsForEvent" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -2032,8 +2436,26 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
-      <http:operation location="/CheckinAgendaAttendees" />
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
+      <http:operation location="/CheckinRegistrationsForAgendaItem" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <http:operation location="/GetCustomReportsForEvent" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <http:operation location="/GetCustomReports" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>
@@ -2044,6 +2466,15 @@
   </wsdl:binding>
   <wsdl:binding name="RegOnline_x0020_APIHttpPost" type="tns:RegOnline_x0020_APIHttpPost">
     <http:binding verb="POST" />
+    <wsdl:operation name="GetRegistrationsByEventID">
+      <http:operation location="/GetRegistrationsByEventID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <http:operation location="/Login" />
       <wsdl:input>
@@ -2089,8 +2520,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByAgenda">
-      <http:operation location="/GetRegistrationsByAgenda" />
+    <wsdl:operation name="GetRegistrationsForCustomField">
+      <http:operation location="/GetRegistrationsForCustomField" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2107,8 +2538,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetRegistrationsByEventID">
-      <http:operation location="/GetRegistrationsByEventID" />
+    <wsdl:operation name="GetRegistrationsForEvent">
+      <http:operation location="/GetRegistrationsForEvent" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2134,8 +2565,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetIncompleteRegistrationsByEventID">
-      <http:operation location="/GetIncompleteRegistrationsByEventID" />
+    <wsdl:operation name="GetIncompleteRegistrationsForEvent">
+      <http:operation location="/GetIncompleteRegistrationsForEvent" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2152,8 +2583,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionByID">
-      <http:operation location="/GetTransactionByID" />
+    <wsdl:operation name="GetTransaction">
+      <http:operation location="/GetTransaction" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2161,8 +2592,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetTransactionsByEventID">
-      <http:operation location="/GetTransactionsByEventID" />
+    <wsdl:operation name="GetTransactionsForEvent">
+      <http:operation location="/GetTransactionsForEvent" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2179,8 +2610,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgenda">
-      <http:operation location="/GetAgenda" />
+    <wsdl:operation name="GetAgendaItems">
+      <http:operation location="/GetAgendaItems" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2188,8 +2619,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeAgenda">
-      <http:operation location="/GetAttendeeAgenda" />
+    <wsdl:operation name="GetAgendaItemResponsesForRegistration">
+      <http:operation location="/GetAgendaItemResponsesForRegistration" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2197,8 +2628,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAgendaResponses">
-      <http:operation location="/GetAgendaResponses" />
+    <wsdl:operation name="GetCustomFieldResponses">
+      <http:operation location="/GetCustomFieldResponses" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2206,8 +2637,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAttendeeCustomFieldResponses">
-      <http:operation location="/GetAttendeeCustomFieldResponses" />
+    <wsdl:operation name="GetCustomFieldResponsesForRegistration">
+      <http:operation location="/GetCustomFieldResponsesForRegistration" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2215,8 +2646,8 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAttendees">
-      <http:operation location="/CheckinAttendees" />
+    <wsdl:operation name="CheckinRegistrationsForEvent">
+      <http:operation location="/CheckinRegistrationsForEvent" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2224,8 +2655,26 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CheckinAgendaAttendees">
-      <http:operation location="/CheckinAgendaAttendees" />
+    <wsdl:operation name="CheckinRegistrationsForAgendaItem">
+      <http:operation location="/CheckinRegistrationsForAgendaItem" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReportsForEvent">
+      <http:operation location="/GetCustomReportsForEvent" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomReports">
+      <http:operation location="/GetCustomReports" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>
@@ -2236,10 +2685,10 @@
   </wsdl:binding>
   <wsdl:service name="RegOnline_x0020_API">
     <wsdl:port name="RegOnline_x0020_APISoap" binding="tns:RegOnline_x0020_APISoap">
-      <soap:address location="http://www.regonline.com/api/default.asmx" />
+      <soap:address location="https://www.regonline.com/api/default.asmx" />
     </wsdl:port>
     <wsdl:port name="RegOnline_x0020_APISoap12" binding="tns:RegOnline_x0020_APISoap12">
-      <soap12:address location="http://www.regonline.com/api/default.asmx" />
+      <soap12:address location="https://www.regonline.com/api/default.asmx" />
     </wsdl:port>
     <wsdl:port name="RegOnline_x0020_APIHttpGet" binding="tns:RegOnline_x0020_APIHttpGet">
       <http:address location="http://www.regonline.com/api/default.asmx" />

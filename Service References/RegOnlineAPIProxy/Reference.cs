@@ -15,149 +15,193 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
     [System.ServiceModel.ServiceContractAttribute(Name="RegOnline APISoap", Namespace="http://www.regonline.com/api", ConfigurationName="RegOnlineAPIProxy.RegOnlineAPISoap")]
     public interface RegOnlineAPISoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/Login", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfLoginResults Login(string username, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetEvents", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEvents(string filter, string orderBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetPublicEvents", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetPublicEvents(string filter, string orderBy);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetEvent", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEvent(int eventID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetEventStatistics", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventStatistics(int eventID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistrationsByAgenda", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByAgenda(int eventID, int cfid, string filter);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistration", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistration(int registrationID);
-        
+        // CODEGEN: Generating message contract since message GetRegistrationsByEventIDRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistrationsByEventID", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByEventID(int eventID, string filter);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDResponse GetRegistrationsByEventID(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/Login", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfLoginResults Login(string username, string password);
+        
+        // CODEGEN: Generating message contract since message GetEventsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetEvents", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsResponse GetEvents(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsRequest request);
+        
+        // CODEGEN: Generating message contract since message GetPublicEventsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetPublicEvents", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsResponse GetPublicEvents(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsRequest request);
+        
+        // CODEGEN: Generating message contract since message GetEventRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetEvent", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventResponse GetEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventRequest request);
+        
+        // CODEGEN: Generating message contract since message GetEventStatisticsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetEventStatistics", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsResponse GetEventStatistics(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsRequest request);
+        
+        // CODEGEN: Generating message contract since message GetRegistrationsForCustomFieldRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistrationsForCustomField", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldResponse GetRegistrationsForCustomField(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldRequest request);
+        
+        // CODEGEN: Generating message contract since message GetRegistrationRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistration", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationResponse GetRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationRequest request);
+        
+        // CODEGEN: Generating message contract since message GetRegistrationsForEventRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistrationsForEvent", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventResponse GetRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventRequest request);
+        
+        // CODEGEN: Generating message contract since message GetRegistrationsRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetRegistrations", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrations(string filter, string orderBy);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsResponse GetRegistrations(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsRequest request);
         
+        // CODEGEN: Generating message contract since message GetIncompleteRegistrationsRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetIncompleteRegistrations", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrations(string filter, string orderBy);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsResponse GetIncompleteRegistrations(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetIncompleteRegistrationsByEventID", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetIncompleteRegistrationsForEventRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetIncompleteRegistrationsForEvent", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsByEventID(int eventID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventResponse GetIncompleteRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventRequest request);
         
+        // CODEGEN: Generating message contract since message GetTransactionsRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetTransactions", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactions(string filter, string orderBy);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsResponse GetTransactions(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetTransactionByID", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetTransactionRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetTransaction", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionByID(int ID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionResponse GetTransaction(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetTransactionsByEventID", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetTransactionsForEventRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetTransactionsForEvent", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsByEventID(int eventID, string orderBy);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventResponse GetTransactionsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventRequest request);
         
+        // CODEGEN: Generating message contract since message GetCustomFieldsRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomFields", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetCustomFields(int eventID, int pageSectionID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsResponse GetCustomFields(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetAgenda", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetAgendaItemsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetAgendaItems", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetAgenda(int eventID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsResponse GetAgendaItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetAttendeeAgenda", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetAgendaItemResponsesForRegistrationRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetAgendaItemResponsesForRegistration", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAttendeeAgenda(int eventID, int registrationID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationResponse GetAgendaItemResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/UpdateAttendeeAgenda", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message UpdateAgendaItemResponsesForRegistrationRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/UpdateAgendaItemResponsesForRegistration", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAttendeeAgenda(int eventID, int registrationID, APICustomFieldResponse[] agendaResponses);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationResponse UpdateAgendaItemResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetAgendaResponses", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetCustomFieldResponsesRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomFieldResponses", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAgendaResponses(int eventID, int cfid);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesResponse GetCustomFieldResponses(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetAttendeeCustomFieldResponses", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message GetCustomFieldResponsesForRegistrationRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomFieldResponsesForRegistration", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAttendeeCustomFieldResponses(int eventID, int registrationID, int pageSectionID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationResponse GetCustomFieldResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/UpdateAttendeeCustomFieldResponses", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message UpdateCustomFieldResponsesForRegistrationRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/UpdateCustomFieldResponsesForRegistration", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAttendeeCustomFieldResponses(int eventID, int registrationID, APICustomFieldResponse[] customFieldResponses);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationResponse UpdateCustomFieldResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/CheckinAttendees", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message CheckinRegistrationsForEventRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/CheckinRegistrationsForEvent", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinAttendees(string registrationIDs);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventResponse CheckinRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/CheckinAgendaAttendees", ReplyAction="*")]
+        // CODEGEN: Generating message contract since message CheckinRegistrationsForAgendaItemRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/CheckinRegistrationsForAgendaItem", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinAgendaAttendees(string registrationIDs, int cfid, int eventID);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemResponse CheckinRegistrationsForAgendaItem(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemRequest request);
         
+        // CODEGEN: Generating message contract since message UpdateRegistrationRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/UpdateRegistration", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
-        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.APIRegistration registration);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationResponse UpdateRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationRequest request);
+        
+        // CODEGEN: Generating message contract since message GetCustomReportsForEventRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomReportsForEvent", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventResponse GetCustomReportsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventRequest request);
+        
+        // CODEGEN: Generating message contract since message GetCustomReportsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomReports", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsResponse GetCustomReports(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsRequest request);
     }
     
     /// <remarks/>
@@ -166,13 +210,147 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
-    public partial class ResultsOfLoginResults : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class TokenHeader : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string aPITokenField;
+        
+        private System.Xml.XmlAttribute[] anyAttrField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string APIToken {
+            get {
+                return this.aPITokenField;
+            }
+            set {
+                this.aPITokenField = value;
+                this.RaisePropertyChanged("APIToken");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
+        public System.Xml.XmlAttribute[] AnyAttr {
+            get {
+                return this.anyAttrField;
+            }
+            set {
+                this.anyAttrField = value;
+                this.RaisePropertyChanged("AnyAttr");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class APICustomReport : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private string nameField;
+        
+        private int eventIDField;
+        
+        private string addByField;
+        
+        private System.DateTime addDateField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("ID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int EventID {
+            get {
+                return this.eventIDField;
+            }
+            set {
+                this.eventIDField = value;
+                this.RaisePropertyChanged("EventID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string AddBy {
+            get {
+                return this.addByField;
+            }
+            set {
+                this.addByField = value;
+                this.RaisePropertyChanged("AddBy");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public System.DateTime AddDate {
+            get {
+                return this.addDateField;
+            }
+            set {
+                this.addDateField = value;
+                this.RaisePropertyChanged("AddDate");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class ResultsOfListOfCustomReport : object, System.ComponentModel.INotifyPropertyChanged {
         
         private bool successField;
         
         private string messageField;
         
-        private LoginResults dataField;
+        private APICustomReport[] dataField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -199,154 +377,14 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public LoginResults Data {
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public APICustomReport[] Data {
             get {
                 return this.dataField;
             }
             set {
                 this.dataField = value;
                 this.RaisePropertyChanged("Data");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
-    public partial class LoginResults : ResultsBase {
-        
-        private string redirectUrlField;
-        
-        private string eventSessionIdField;
-        
-        private int customerIdField;
-        
-        private bool displayCaptchaField;
-        
-        private bool isCustomerDeactivatedField;
-        
-        private string aPITokenField;
-        
-        private string emailField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string RedirectUrl {
-            get {
-                return this.redirectUrlField;
-            }
-            set {
-                this.redirectUrlField = value;
-                this.RaisePropertyChanged("RedirectUrl");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string EventSessionId {
-            get {
-                return this.eventSessionIdField;
-            }
-            set {
-                this.eventSessionIdField = value;
-                this.RaisePropertyChanged("EventSessionId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int CustomerId {
-            get {
-                return this.customerIdField;
-            }
-            set {
-                this.customerIdField = value;
-                this.RaisePropertyChanged("CustomerId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public bool DisplayCaptcha {
-            get {
-                return this.displayCaptchaField;
-            }
-            set {
-                this.displayCaptchaField = value;
-                this.RaisePropertyChanged("DisplayCaptcha");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public bool IsCustomerDeactivated {
-            get {
-                return this.isCustomerDeactivatedField;
-            }
-            set {
-                this.isCustomerDeactivatedField = value;
-                this.RaisePropertyChanged("IsCustomerDeactivated");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string APIToken {
-            get {
-                return this.aPITokenField;
-            }
-            set {
-                this.aPITokenField = value;
-                this.RaisePropertyChanged("APIToken");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string Email {
-            get {
-                return this.emailField;
-            }
-            set {
-                this.emailField = value;
-                this.RaisePropertyChanged("Email");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginResults))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
-    public abstract partial class ResultsBase : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool successField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public bool Success {
-            get {
-                return this.successField;
-            }
-            set {
-                this.successField = value;
-                this.RaisePropertyChanged("Success");
             }
         }
         
@@ -481,6 +519,10 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         private System.Nullable<System.DateTime> customFieldStartDateField;
         
         private System.Nullable<System.DateTime> customFieldEndDateField;
+        
+        private string customFieldLocationField;
+        
+        private int customFieldTypeIDField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -803,6 +845,30 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
             set {
                 this.customFieldEndDateField = value;
                 this.RaisePropertyChanged("CustomFieldEndDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=27)]
+        public string CustomFieldLocation {
+            get {
+                return this.customFieldLocationField;
+            }
+            set {
+                this.customFieldLocationField = value;
+                this.RaisePropertyChanged("CustomFieldLocation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=28)]
+        public int CustomFieldTypeID {
+            get {
+                return this.customFieldTypeIDField;
+            }
+            set {
+                this.customFieldTypeIDField = value;
+                this.RaisePropertyChanged("CustomFieldTypeID");
             }
         }
         
@@ -1453,11 +1519,11 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(APIEvent))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AttendeeCommonFields))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationCommonFields))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(APITransaction))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(APIRegistration))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(APIEvent))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1552,6 +1618,10 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         private bool isActiveField;
         
         private bool isOnSiteField;
+        
+        private System.Nullable<decimal> latitudeField;
+        
+        private System.Nullable<decimal> longitudeField;
         
         private System.Nullable<decimal> totalRevenueField;
         
@@ -1987,6 +2057,30 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=34)]
+        public System.Nullable<decimal> Latitude {
+            get {
+                return this.latitudeField;
+            }
+            set {
+                this.latitudeField = value;
+                this.RaisePropertyChanged("Latitude");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=35)]
+        public System.Nullable<decimal> Longitude {
+            get {
+                return this.longitudeField;
+            }
+            set {
+                this.longitudeField = value;
+                this.RaisePropertyChanged("Longitude");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=36)]
         public System.Nullable<decimal> TotalRevenue {
             get {
                 return this.totalRevenueField;
@@ -1998,7 +2092,7 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=35)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=37)]
         public System.Nullable<int> TotalRegistrations {
             get {
                 return this.totalRegistrationsField;
@@ -2010,7 +2104,7 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=36)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=38)]
         public System.Nullable<int> TotalCancels {
             get {
                 return this.totalCancelsField;
@@ -2022,7 +2116,7 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=37)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=39)]
         public System.Nullable<int> TotalSubstitutions {
             get {
                 return this.totalSubstitutionsField;
@@ -2034,7 +2128,7 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=38)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=40)]
         public System.Nullable<int> TargetAttendance {
             get {
                 return this.targetAttendanceField;
@@ -2046,7 +2140,7 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=39)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=41)]
         public System.Nullable<int> TotalIncompletes {
             get {
                 return this.totalIncompletesField;
@@ -2161,6 +2255,8 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         private string modByField;
         
         private System.DateTime modDateField;
+        
+        private string paymentDocNumberField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
@@ -2737,64 +2833,16 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
                 this.RaisePropertyChanged("ModDate");
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
-    public partial class ResultsOfListOfRegistration : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private bool successField;
-        
-        private string messageField;
-        
-        private APIRegistration[] dataField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public bool Success {
+        [System.Xml.Serialization.XmlElementAttribute(Order=48)]
+        public string PaymentDocNumber {
             get {
-                return this.successField;
+                return this.paymentDocNumberField;
             }
             set {
-                this.successField = value;
-                this.RaisePropertyChanged("Success");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-                this.RaisePropertyChanged("Message");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
-        public APIRegistration[] Data {
-            get {
-                return this.dataField;
-            }
-            set {
-                this.dataField = value;
-                this.RaisePropertyChanged("Data");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                this.paymentDocNumberField = value;
+                this.RaisePropertyChanged("PaymentDocNumber");
             }
         }
     }
@@ -2859,6 +2907,1382 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         }
     }
     
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginResults))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public abstract partial class ResultsBase : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("Success");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class LoginResults : ResultsBase {
+        
+        private string redirectUrlField;
+        
+        private string eventSessionIdField;
+        
+        private int customerIdField;
+        
+        private bool displayCaptchaField;
+        
+        private bool isCustomerDeactivatedField;
+        
+        private string aPITokenField;
+        
+        private string emailField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string RedirectUrl {
+            get {
+                return this.redirectUrlField;
+            }
+            set {
+                this.redirectUrlField = value;
+                this.RaisePropertyChanged("RedirectUrl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string EventSessionId {
+            get {
+                return this.eventSessionIdField;
+            }
+            set {
+                this.eventSessionIdField = value;
+                this.RaisePropertyChanged("EventSessionId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int CustomerId {
+            get {
+                return this.customerIdField;
+            }
+            set {
+                this.customerIdField = value;
+                this.RaisePropertyChanged("CustomerId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public bool DisplayCaptcha {
+            get {
+                return this.displayCaptchaField;
+            }
+            set {
+                this.displayCaptchaField = value;
+                this.RaisePropertyChanged("DisplayCaptcha");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public bool IsCustomerDeactivated {
+            get {
+                return this.isCustomerDeactivatedField;
+            }
+            set {
+                this.isCustomerDeactivatedField = value;
+                this.RaisePropertyChanged("IsCustomerDeactivated");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string APIToken {
+            get {
+                return this.aPITokenField;
+            }
+            set {
+                this.aPITokenField = value;
+                this.RaisePropertyChanged("APIToken");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+                this.RaisePropertyChanged("Email");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class ResultsOfLoginResults : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        private string messageField;
+        
+        private LoginResults dataField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("Success");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+                this.RaisePropertyChanged("Message");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public LoginResults Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+                this.RaisePropertyChanged("Data");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class ResultsOfListOfRegistration : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        private string messageField;
+        
+        private APIRegistration[] dataField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("Success");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+                this.RaisePropertyChanged("Message");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public APIRegistration[] Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+                this.RaisePropertyChanged("Data");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsByEventID", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsByEventIDRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string filter;
+        
+        public GetRegistrationsByEventIDRequest() {
+        }
+        
+        public GetRegistrationsByEventIDRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string filter) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.filter = filter;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsByEventIDResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsByEventIDResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByEventIDResult;
+        
+        public GetRegistrationsByEventIDResponse() {
+        }
+        
+        public GetRegistrationsByEventIDResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByEventIDResult) {
+            this.GetRegistrationsByEventIDResult = GetRegistrationsByEventIDResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEvents", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetEventsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetEventsRequest() {
+        }
+        
+        public GetEventsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEventsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetEventsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventsResult;
+        
+        public GetEventsResponse() {
+        }
+        
+        public GetEventsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventsResult) {
+            this.GetEventsResult = GetEventsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPublicEvents", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetPublicEventsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetPublicEventsRequest() {
+        }
+        
+        public GetPublicEventsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetPublicEventsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetPublicEventsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetPublicEventsResult;
+        
+        public GetPublicEventsResponse() {
+        }
+        
+        public GetPublicEventsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetPublicEventsResult) {
+            this.GetPublicEventsResult = GetPublicEventsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEvent", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetEventRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        public GetEventRequest() {
+        }
+        
+        public GetEventRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEventResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventResult;
+        
+        public GetEventResponse() {
+        }
+        
+        public GetEventResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventResult) {
+            this.GetEventResult = GetEventResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEventStatistics", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetEventStatisticsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        public GetEventStatisticsRequest() {
+        }
+        
+        public GetEventStatisticsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetEventStatisticsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetEventStatisticsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventStatisticsResult;
+        
+        public GetEventStatisticsResponse() {
+        }
+        
+        public GetEventStatisticsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventStatisticsResult) {
+            this.GetEventStatisticsResult = GetEventStatisticsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsForCustomField", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsForCustomFieldRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int cfid;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=3)]
+        public string orderBy;
+        
+        public GetRegistrationsForCustomFieldRequest() {
+        }
+        
+        public GetRegistrationsForCustomFieldRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int cfid, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.cfid = cfid;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsForCustomFieldResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsForCustomFieldResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsForCustomFieldResult;
+        
+        public GetRegistrationsForCustomFieldResponse() {
+        }
+        
+        public GetRegistrationsForCustomFieldResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsForCustomFieldResult) {
+            this.GetRegistrationsForCustomFieldResult = GetRegistrationsForCustomFieldResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int registrationID;
+        
+        public GetRegistrationRequest() {
+        }
+        
+        public GetRegistrationRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int registrationID) {
+            this.TokenHeader = TokenHeader;
+            this.registrationID = registrationID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationResult;
+        
+        public GetRegistrationResponse() {
+        }
+        
+        public GetRegistrationResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationResult) {
+            this.GetRegistrationResult = GetRegistrationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsForEvent", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsForEventRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string orderBy;
+        
+        public GetRegistrationsForEventRequest() {
+        }
+        
+        public GetRegistrationsForEventRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsForEventResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsForEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsForEventResult;
+        
+        public GetRegistrationsForEventResponse() {
+        }
+        
+        public GetRegistrationsForEventResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsForEventResult) {
+            this.GetRegistrationsForEventResult = GetRegistrationsForEventResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrations", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetRegistrationsRequest() {
+        }
+        
+        public GetRegistrationsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRegistrationsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetRegistrationsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsResult;
+        
+        public GetRegistrationsResponse() {
+        }
+        
+        public GetRegistrationsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsResult) {
+            this.GetRegistrationsResult = GetRegistrationsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetIncompleteRegistrations", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetIncompleteRegistrationsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetIncompleteRegistrationsRequest() {
+        }
+        
+        public GetIncompleteRegistrationsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetIncompleteRegistrationsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetIncompleteRegistrationsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsResult;
+        
+        public GetIncompleteRegistrationsResponse() {
+        }
+        
+        public GetIncompleteRegistrationsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsResult) {
+            this.GetIncompleteRegistrationsResult = GetIncompleteRegistrationsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetIncompleteRegistrationsForEvent", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetIncompleteRegistrationsForEventRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetIncompleteRegistrationsForEventRequest() {
+        }
+        
+        public GetIncompleteRegistrationsForEventRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetIncompleteRegistrationsForEventResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetIncompleteRegistrationsForEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsForEventResult;
+        
+        public GetIncompleteRegistrationsForEventResponse() {
+        }
+        
+        public GetIncompleteRegistrationsForEventResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsForEventResult) {
+            this.GetIncompleteRegistrationsForEventResult = GetIncompleteRegistrationsForEventResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTransactions", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetTransactionsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetTransactionsRequest() {
+        }
+        
+        public GetTransactionsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTransactionsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetTransactionsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsResult;
+        
+        public GetTransactionsResponse() {
+        }
+        
+        public GetTransactionsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsResult) {
+            this.GetTransactionsResult = GetTransactionsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTransaction", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetTransactionRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int ID;
+        
+        public GetTransactionRequest() {
+        }
+        
+        public GetTransactionRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int ID) {
+            this.TokenHeader = TokenHeader;
+            this.ID = ID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTransactionResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetTransactionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionResult;
+        
+        public GetTransactionResponse() {
+        }
+        
+        public GetTransactionResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionResult) {
+            this.GetTransactionResult = GetTransactionResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTransactionsForEvent", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetTransactionsForEventRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetTransactionsForEventRequest() {
+        }
+        
+        public GetTransactionsForEventRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTransactionsForEventResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetTransactionsForEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsForEventResult;
+        
+        public GetTransactionsForEventResponse() {
+        }
+        
+        public GetTransactionsForEventResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsForEventResult) {
+            this.GetTransactionsForEventResult = GetTransactionsForEventResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFields", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int pageSectionID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string orderBy;
+        
+        public GetCustomFieldsRequest() {
+        }
+        
+        public GetCustomFieldsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int pageSectionID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.pageSectionID = pageSectionID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetCustomFieldsResult;
+        
+        public GetCustomFieldsResponse() {
+        }
+        
+        public GetCustomFieldsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetCustomFieldsResult) {
+            this.GetCustomFieldsResult = GetCustomFieldsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAgendaItems", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetAgendaItemsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetAgendaItemsRequest() {
+        }
+        
+        public GetAgendaItemsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAgendaItemsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetAgendaItemsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetAgendaItemsResult;
+        
+        public GetAgendaItemsResponse() {
+        }
+        
+        public GetAgendaItemsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetAgendaItemsResult) {
+            this.GetAgendaItemsResult = GetAgendaItemsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAgendaItemResponsesForRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetAgendaItemResponsesForRegistrationRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int registrationID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string orderBy;
+        
+        public GetAgendaItemResponsesForRegistrationRequest() {
+        }
+        
+        public GetAgendaItemResponsesForRegistrationRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.registrationID = registrationID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAgendaItemResponsesForRegistrationResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetAgendaItemResponsesForRegistrationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAgendaItemResponsesForRegistrationResult;
+        
+        public GetAgendaItemResponsesForRegistrationResponse() {
+        }
+        
+        public GetAgendaItemResponsesForRegistrationResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAgendaItemResponsesForRegistrationResult) {
+            this.GetAgendaItemResponsesForRegistrationResult = GetAgendaItemResponsesForRegistrationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAgendaItemResponsesForRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class UpdateAgendaItemResponsesForRegistrationRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int registrationID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public APICustomFieldResponse[] agendaItemResponses;
+        
+        public UpdateAgendaItemResponsesForRegistrationRequest() {
+        }
+        
+        public UpdateAgendaItemResponsesForRegistrationRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, APICustomFieldResponse[] agendaItemResponses) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.registrationID = registrationID;
+            this.agendaItemResponses = agendaItemResponses;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAgendaItemResponsesForRegistrationResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class UpdateAgendaItemResponsesForRegistrationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAgendaItemResponsesForRegistrationResult;
+        
+        public UpdateAgendaItemResponsesForRegistrationResponse() {
+        }
+        
+        public UpdateAgendaItemResponsesForRegistrationResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAgendaItemResponsesForRegistrationResult) {
+            this.UpdateAgendaItemResponsesForRegistrationResult = UpdateAgendaItemResponsesForRegistrationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldResponses", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldResponsesRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int cfID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string orderBy;
+        
+        public GetCustomFieldResponsesRequest() {
+        }
+        
+        public GetCustomFieldResponsesRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int cfID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.cfID = cfID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldResponsesResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldResponsesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetCustomFieldResponsesResult;
+        
+        public GetCustomFieldResponsesResponse() {
+        }
+        
+        public GetCustomFieldResponsesResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetCustomFieldResponsesResult) {
+            this.GetCustomFieldResponsesResult = GetCustomFieldResponsesResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldResponsesForRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldResponsesForRegistrationRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int registrationID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public int pageSectionID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=3)]
+        public string orderBy;
+        
+        public GetCustomFieldResponsesForRegistrationRequest() {
+        }
+        
+        public GetCustomFieldResponsesForRegistrationRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, int pageSectionID, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.registrationID = registrationID;
+            this.pageSectionID = pageSectionID;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldResponsesForRegistrationResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldResponsesForRegistrationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetCustomFieldResponsesForRegistrationResult;
+        
+        public GetCustomFieldResponsesForRegistrationResponse() {
+        }
+        
+        public GetCustomFieldResponsesForRegistrationResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetCustomFieldResponsesForRegistrationResult) {
+            this.GetCustomFieldResponsesForRegistrationResult = GetCustomFieldResponsesForRegistrationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateCustomFieldResponsesForRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class UpdateCustomFieldResponsesForRegistrationRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int registrationID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public APICustomFieldResponse[] customFieldResponses;
+        
+        public UpdateCustomFieldResponsesForRegistrationRequest() {
+        }
+        
+        public UpdateCustomFieldResponsesForRegistrationRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, APICustomFieldResponse[] customFieldResponses) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.registrationID = registrationID;
+            this.customFieldResponses = customFieldResponses;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateCustomFieldResponsesForRegistrationResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class UpdateCustomFieldResponsesForRegistrationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateCustomFieldResponsesForRegistrationResult;
+        
+        public UpdateCustomFieldResponsesForRegistrationResponse() {
+        }
+        
+        public UpdateCustomFieldResponsesForRegistrationResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateCustomFieldResponsesForRegistrationResult) {
+            this.UpdateCustomFieldResponsesForRegistrationResult = UpdateCustomFieldResponsesForRegistrationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CheckinRegistrationsForEvent", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class CheckinRegistrationsForEventRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string registrationIDs;
+        
+        public CheckinRegistrationsForEventRequest() {
+        }
+        
+        public CheckinRegistrationsForEventRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string registrationIDs) {
+            this.TokenHeader = TokenHeader;
+            this.registrationIDs = registrationIDs;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CheckinRegistrationsForEventResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class CheckinRegistrationsForEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinRegistrationsForEventResult;
+        
+        public CheckinRegistrationsForEventResponse() {
+        }
+        
+        public CheckinRegistrationsForEventResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinRegistrationsForEventResult) {
+            this.CheckinRegistrationsForEventResult = CheckinRegistrationsForEventResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CheckinRegistrationsForAgendaItem", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class CheckinRegistrationsForAgendaItemRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string registrationIDs;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int agendaItemID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public int eventID;
+        
+        public CheckinRegistrationsForAgendaItemRequest() {
+        }
+        
+        public CheckinRegistrationsForAgendaItemRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string registrationIDs, int agendaItemID, int eventID) {
+            this.TokenHeader = TokenHeader;
+            this.registrationIDs = registrationIDs;
+            this.agendaItemID = agendaItemID;
+            this.eventID = eventID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CheckinRegistrationsForAgendaItemResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class CheckinRegistrationsForAgendaItemResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinRegistrationsForAgendaItemResult;
+        
+        public CheckinRegistrationsForAgendaItemResponse() {
+        }
+        
+        public CheckinRegistrationsForAgendaItemResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinRegistrationsForAgendaItemResult) {
+            this.CheckinRegistrationsForAgendaItemResult = CheckinRegistrationsForAgendaItemResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class UpdateRegistrationRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.APIRegistration registration;
+        
+        public UpdateRegistrationRequest() {
+        }
+        
+        public UpdateRegistrationRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, RegOnline.ConsoleAPISample.RegOnlineAPIProxy.APIRegistration registration) {
+            this.TokenHeader = TokenHeader;
+            this.registration = registration;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateRegistrationResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class UpdateRegistrationResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateRegistrationResult;
+        
+        public UpdateRegistrationResponse() {
+        }
+        
+        public UpdateRegistrationResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateRegistrationResult) {
+            this.UpdateRegistrationResult = UpdateRegistrationResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomReportsForEvent", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomReportsForEventRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string orderBy;
+        
+        public GetCustomReportsForEventRequest() {
+        }
+        
+        public GetCustomReportsForEventRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomReportsForEventResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomReportsForEventResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomReport GetCustomReportsForEventResult;
+        
+        public GetCustomReportsForEventResponse() {
+        }
+        
+        public GetCustomReportsForEventResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomReport GetCustomReportsForEventResult) {
+            this.GetCustomReportsForEventResult = GetCustomReportsForEventResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomReports", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomReportsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public string orderBy;
+        
+        public GetCustomReportsRequest() {
+        }
+        
+        public GetCustomReportsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomReportsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomReportsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomReport GetCustomReportsResult;
+        
+        public GetCustomReportsResponse() {
+        }
+        
+        public GetCustomReportsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomReport GetCustomReportsResult) {
+            this.GetCustomReportsResult = GetCustomReportsResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface RegOnlineAPISoapChannel : RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap, System.ServiceModel.IClientChannel {
     }
@@ -2886,100 +4310,378 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
                 base(binding, remoteAddress) {
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetRegistrationsByEventID(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDRequest request) {
+            return base.Channel.GetRegistrationsByEventID(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByEventID(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string filter) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.filter = filter;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsByEventIDResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetRegistrationsByEventID(inValue);
+            return retVal.GetRegistrationsByEventIDResult;
+        }
+        
         public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfLoginResults Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEvents(string filter, string orderBy) {
-            return base.Channel.GetEvents(filter, orderBy);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetEvents(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsRequest request) {
+            return base.Channel.GetEvents(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetPublicEvents(string filter, string orderBy) {
-            return base.Channel.GetPublicEvents(filter, orderBy);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEvents(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetEvents(inValue);
+            return retVal.GetEventsResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEvent(int eventID) {
-            return base.Channel.GetEvent(eventID);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetPublicEvents(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsRequest request) {
+            return base.Channel.GetPublicEvents(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventStatistics(int eventID) {
-            return base.Channel.GetEventStatistics(eventID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetPublicEvents(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetPublicEventsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetPublicEvents(inValue);
+            return retVal.GetPublicEventsResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByAgenda(int eventID, int cfid, string filter) {
-            return base.Channel.GetRegistrationsByAgenda(eventID, cfid, filter);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventRequest request) {
+            return base.Channel.GetEvent(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistration(int registrationID) {
-            return base.Channel.GetRegistration(registrationID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetEvent(inValue);
+            return retVal.GetEventResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsByEventID(int eventID, string filter) {
-            return base.Channel.GetRegistrationsByEventID(eventID, filter);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetEventStatistics(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsRequest request) {
+            return base.Channel.GetEventStatistics(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrations(string filter, string orderBy) {
-            return base.Channel.GetRegistrations(filter, orderBy);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent GetEventStatistics(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetEventStatisticsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetEventStatistics(inValue);
+            return retVal.GetEventStatisticsResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrations(string filter, string orderBy) {
-            return base.Channel.GetIncompleteRegistrations(filter, orderBy);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetRegistrationsForCustomField(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldRequest request) {
+            return base.Channel.GetRegistrationsForCustomField(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsByEventID(int eventID) {
-            return base.Channel.GetIncompleteRegistrationsByEventID(eventID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsForCustomField(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int cfid, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.cfid = cfid;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForCustomFieldResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetRegistrationsForCustomField(inValue);
+            return retVal.GetRegistrationsForCustomFieldResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactions(string filter, string orderBy) {
-            return base.Channel.GetTransactions(filter, orderBy);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationRequest request) {
+            return base.Channel.GetRegistration(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionByID(int ID) {
-            return base.Channel.GetTransactionByID(ID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int registrationID) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.registrationID = registrationID;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetRegistration(inValue);
+            return retVal.GetRegistrationResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsByEventID(int eventID, string orderBy) {
-            return base.Channel.GetTransactionsByEventID(eventID, orderBy);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventRequest request) {
+            return base.Channel.GetRegistrationsForEvent(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetCustomFields(int eventID, int pageSectionID) {
-            return base.Channel.GetCustomFields(eventID, pageSectionID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsForEventResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetRegistrationsForEvent(inValue);
+            return retVal.GetRegistrationsForEventResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetAgenda(int eventID) {
-            return base.Channel.GetAgenda(eventID);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetRegistrations(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsRequest request) {
+            return base.Channel.GetRegistrations(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAttendeeAgenda(int eventID, int registrationID) {
-            return base.Channel.GetAttendeeAgenda(eventID, registrationID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetRegistrations(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetRegistrationsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetRegistrations(inValue);
+            return retVal.GetRegistrationsResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAttendeeAgenda(int eventID, int registrationID, APICustomFieldResponse[] agendaResponses) {
-            return base.Channel.UpdateAttendeeAgenda(eventID, registrationID, agendaResponses);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetIncompleteRegistrations(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsRequest request) {
+            return base.Channel.GetIncompleteRegistrations(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAgendaResponses(int eventID, int cfid) {
-            return base.Channel.GetAgendaResponses(eventID, cfid);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrations(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetIncompleteRegistrations(inValue);
+            return retVal.GetIncompleteRegistrationsResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAttendeeCustomFieldResponses(int eventID, int registrationID, int pageSectionID) {
-            return base.Channel.GetAttendeeCustomFieldResponses(eventID, registrationID, pageSectionID);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetIncompleteRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventRequest request) {
+            return base.Channel.GetIncompleteRegistrationsForEvent(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAttendeeCustomFieldResponses(int eventID, int registrationID, APICustomFieldResponse[] customFieldResponses) {
-            return base.Channel.UpdateAttendeeCustomFieldResponses(eventID, registrationID, customFieldResponses);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration GetIncompleteRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetIncompleteRegistrationsForEventResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetIncompleteRegistrationsForEvent(inValue);
+            return retVal.GetIncompleteRegistrationsForEventResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinAttendees(string registrationIDs) {
-            return base.Channel.CheckinAttendees(registrationIDs);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetTransactions(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsRequest request) {
+            return base.Channel.GetTransactions(request);
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinAgendaAttendees(string registrationIDs, int cfid, int eventID) {
-            return base.Channel.CheckinAgendaAttendees(registrationIDs, cfid, eventID);
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactions(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetTransactions(inValue);
+            return retVal.GetTransactionsResult;
         }
         
-        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.APIRegistration registration) {
-            return base.Channel.UpdateRegistration(registration);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetTransaction(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionRequest request) {
+            return base.Channel.GetTransaction(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransaction(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int ID) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.ID = ID;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetTransaction(inValue);
+            return retVal.GetTransactionResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetTransactionsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventRequest request) {
+            return base.Channel.GetTransactionsForEvent(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfTransaction GetTransactionsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetTransactionsForEventResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetTransactionsForEvent(inValue);
+            return retVal.GetTransactionsForEventResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetCustomFields(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsRequest request) {
+            return base.Channel.GetCustomFields(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetCustomFields(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int pageSectionID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.pageSectionID = pageSectionID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetCustomFields(inValue);
+            return retVal.GetCustomFieldsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetAgendaItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsRequest request) {
+            return base.Channel.GetAgendaItems(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField GetAgendaItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetAgendaItems(inValue);
+            return retVal.GetAgendaItemsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetAgendaItemResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationRequest request) {
+            return base.Channel.GetAgendaItemResponsesForRegistration(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetAgendaItemResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.registrationID = registrationID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemResponsesForRegistrationResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetAgendaItemResponsesForRegistration(inValue);
+            return retVal.GetAgendaItemResponsesForRegistrationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.UpdateAgendaItemResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationRequest request) {
+            return base.Channel.UpdateAgendaItemResponsesForRegistration(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateAgendaItemResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, APICustomFieldResponse[] agendaItemResponses) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.registrationID = registrationID;
+            inValue.agendaItemResponses = agendaItemResponses;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateAgendaItemResponsesForRegistrationResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).UpdateAgendaItemResponsesForRegistration(inValue);
+            return retVal.UpdateAgendaItemResponsesForRegistrationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetCustomFieldResponses(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesRequest request) {
+            return base.Channel.GetCustomFieldResponses(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetCustomFieldResponses(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int cfID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.cfID = cfID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetCustomFieldResponses(inValue);
+            return retVal.GetCustomFieldResponsesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetCustomFieldResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationRequest request) {
+            return base.Channel.GetCustomFieldResponsesForRegistration(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse GetCustomFieldResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, int pageSectionID, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.registrationID = registrationID;
+            inValue.pageSectionID = pageSectionID;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldResponsesForRegistrationResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetCustomFieldResponsesForRegistration(inValue);
+            return retVal.GetCustomFieldResponsesForRegistrationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.UpdateCustomFieldResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationRequest request) {
+            return base.Channel.UpdateCustomFieldResponsesForRegistration(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateCustomFieldResponsesForRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int registrationID, APICustomFieldResponse[] customFieldResponses) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.registrationID = registrationID;
+            inValue.customFieldResponses = customFieldResponses;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateCustomFieldResponsesForRegistrationResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).UpdateCustomFieldResponsesForRegistration(inValue);
+            return retVal.UpdateCustomFieldResponsesForRegistrationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.CheckinRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventRequest request) {
+            return base.Channel.CheckinRegistrationsForEvent(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinRegistrationsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string registrationIDs) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.registrationIDs = registrationIDs;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForEventResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).CheckinRegistrationsForEvent(inValue);
+            return retVal.CheckinRegistrationsForEventResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.CheckinRegistrationsForAgendaItem(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemRequest request) {
+            return base.Channel.CheckinRegistrationsForAgendaItem(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean CheckinRegistrationsForAgendaItem(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string registrationIDs, int agendaItemID, int eventID) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.registrationIDs = registrationIDs;
+            inValue.agendaItemID = agendaItemID;
+            inValue.eventID = eventID;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.CheckinRegistrationsForAgendaItemResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).CheckinRegistrationsForAgendaItem(inValue);
+            return retVal.CheckinRegistrationsForAgendaItemResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.UpdateRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationRequest request) {
+            return base.Channel.UpdateRegistration(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean UpdateRegistration(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, RegOnline.ConsoleAPISample.RegOnlineAPIProxy.APIRegistration registration) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.registration = registration;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.UpdateRegistrationResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).UpdateRegistration(inValue);
+            return retVal.UpdateRegistrationResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetCustomReportsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventRequest request) {
+            return base.Channel.GetCustomReportsForEvent(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomReport GetCustomReportsForEvent(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsForEventResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetCustomReportsForEvent(inValue);
+            return retVal.GetCustomReportsForEventResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetCustomReports(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsRequest request) {
+            return base.Channel.GetCustomReports(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomReport GetCustomReports(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomReportsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetCustomReports(inValue);
+            return retVal.GetCustomReportsResult;
         }
     }
 }
