@@ -60,7 +60,13 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Service References\RegOnlineAPIProxy\default.wsdl" />
+    <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfAttendeeMobileAppSettings.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfBoolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfBoolean.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField.datasource">
@@ -75,6 +81,9 @@
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEvent.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfEventWebsite.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfRegistration.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -82,6 +91,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfLoginResults.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfOrganizerMobileAppSettings.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
