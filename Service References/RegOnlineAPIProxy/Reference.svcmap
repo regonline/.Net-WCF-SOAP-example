@@ -21,8 +21,8 @@
     <MetadataSource Address="https://www.regonline.com/api/default.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="default.wsdl" MetadataType="Wsdl" ID="e900834b-e0b3-4c49-ab1f-42911965e2b5" SourceId="1" SourceUrl="https://www.regonline.com/api/default.asmx?wsdl" />
-    <MetadataFile FileName="default.disco" MetadataType="Disco" ID="45734baa-dd7b-4379-8c8e-0dca22dec92c" SourceId="1" SourceUrl="https://www.regonline.com/api/default.asmx?disco" />
+    <MetadataFile FileName="default.disco" MetadataType="Disco" ID="6dadc112-bfdd-4298-92d5-5e68df61c25f" SourceId="1" SourceUrl="https://www.regonline.com/api/default.asmx?disco" />
+    <MetadataFile FileName="default.wsdl" MetadataType="Wsdl" ID="f76779bb-5c04-4dfd-bc66-d19fb7383724" SourceId="1" SourceUrl="https://www.regonline.com/api/default.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

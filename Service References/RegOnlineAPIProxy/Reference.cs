@@ -181,6 +181,14 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
         RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsResponse GetAgendaItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsRequest request);
         
+        // CODEGEN: Generating message contract since message GetCustomFieldListItemsRequest has headers
+        [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomFieldListItems", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(APIEventWebsiteTab))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(ResultsBase))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(EventCommonFields))]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsResponse GetCustomFieldListItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsRequest request);
+        
         // CODEGEN: Generating message contract since message GetCustomFieldsForRegistrationRequest has headers
         [System.ServiceModel.OperationContractAttribute(Action="http://www.regonline.com/api/GetCustomFieldsForRegistration", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -2016,6 +2024,224 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
         public APICustomFieldResponse[] Data {
+            get {
+                return this.dataField;
+            }
+            set {
+                this.dataField = value;
+                this.RaisePropertyChanged("Data");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class APICustomFieldListItem : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private int eventIDField;
+        
+        private int cFIDField;
+        
+        private string nameOnFormField;
+        
+        private string nameOnReportField;
+        
+        private System.Nullable<decimal> priceField;
+        
+        private System.Nullable<int> capacityField;
+        
+        private System.Nullable<int> perGroupLimitField;
+        
+        private bool isVisibleField;
+        
+        private int orderField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int ID {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("ID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public int EventID {
+            get {
+                return this.eventIDField;
+            }
+            set {
+                this.eventIDField = value;
+                this.RaisePropertyChanged("EventID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public int CFID {
+            get {
+                return this.cFIDField;
+            }
+            set {
+                this.cFIDField = value;
+                this.RaisePropertyChanged("CFID");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string NameOnForm {
+            get {
+                return this.nameOnFormField;
+            }
+            set {
+                this.nameOnFormField = value;
+                this.RaisePropertyChanged("NameOnForm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string NameOnReport {
+            get {
+                return this.nameOnReportField;
+            }
+            set {
+                this.nameOnReportField = value;
+                this.RaisePropertyChanged("NameOnReport");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public System.Nullable<decimal> Price {
+            get {
+                return this.priceField;
+            }
+            set {
+                this.priceField = value;
+                this.RaisePropertyChanged("Price");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public System.Nullable<int> Capacity {
+            get {
+                return this.capacityField;
+            }
+            set {
+                this.capacityField = value;
+                this.RaisePropertyChanged("Capacity");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<int> PerGroupLimit {
+            get {
+                return this.perGroupLimitField;
+            }
+            set {
+                this.perGroupLimitField = value;
+                this.RaisePropertyChanged("PerGroupLimit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public bool IsVisible {
+            get {
+                return this.isVisibleField;
+            }
+            set {
+                this.isVisibleField = value;
+                this.RaisePropertyChanged("IsVisible");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public int Order {
+            get {
+                return this.orderField;
+            }
+            set {
+                this.orderField = value;
+                this.RaisePropertyChanged("Order");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.regonline.com/api")]
+    public partial class ResultsOfListOfCustomFieldListItem : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private bool successField;
+        
+        private string messageField;
+        
+        private APICustomFieldListItem[] dataField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public bool Success {
+            get {
+                return this.successField;
+            }
+            set {
+                this.successField = value;
+                this.RaisePropertyChanged("Success");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+                this.RaisePropertyChanged("Message");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(Order=2)]
+        public APICustomFieldListItem[] Data {
             get {
                 return this.dataField;
             }
@@ -5761,6 +5987,56 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldListItems", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldListItemsRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://www.regonline.com/api")]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public int eventID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=1)]
+        public int cfID;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=2)]
+        public string filter;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=3)]
+        public string orderBy;
+        
+        public GetCustomFieldListItemsRequest() {
+        }
+        
+        public GetCustomFieldListItemsRequest(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int cfID, string filter, string orderBy) {
+            this.TokenHeader = TokenHeader;
+            this.eventID = eventID;
+            this.cfID = cfID;
+            this.filter = filter;
+            this.orderBy = orderBy;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldListItemsResponse", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
+    public partial class GetCustomFieldListItemsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.regonline.com/api", Order=0)]
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldListItem GetCustomFieldListItemsResult;
+        
+        public GetCustomFieldListItemsResponse() {
+        }
+        
+        public GetCustomFieldListItemsResponse(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldListItem GetCustomFieldListItemsResult) {
+            this.GetCustomFieldListItemsResult = GetCustomFieldListItemsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomFieldsForRegistration", WrapperNamespace="http://www.regonline.com/api", IsWrapped=true)]
     public partial class GetCustomFieldsForRegistrationRequest {
         
@@ -6688,6 +6964,22 @@ namespace RegOnline.ConsoleAPISample.RegOnlineAPIProxy {
             inValue.orderBy = orderBy;
             RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetAgendaItemsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetAgendaItems(inValue);
             return retVal.GetAgendaItemsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsResponse RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap.GetCustomFieldListItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsRequest request) {
+            return base.Channel.GetCustomFieldListItems(request);
+        }
+        
+        public RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldListItem GetCustomFieldListItems(RegOnline.ConsoleAPISample.RegOnlineAPIProxy.TokenHeader TokenHeader, int eventID, int cfID, string filter, string orderBy) {
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsRequest inValue = new RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsRequest();
+            inValue.TokenHeader = TokenHeader;
+            inValue.eventID = eventID;
+            inValue.cfID = cfID;
+            inValue.filter = filter;
+            inValue.orderBy = orderBy;
+            RegOnline.ConsoleAPISample.RegOnlineAPIProxy.GetCustomFieldListItemsResponse retVal = ((RegOnline.ConsoleAPISample.RegOnlineAPIProxy.RegOnlineAPISoap)(this)).GetCustomFieldListItems(inValue);
+            return retVal.GetCustomFieldListItemsResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

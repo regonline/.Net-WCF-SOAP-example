@@ -654,6 +654,49 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetCustomFieldListItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cfID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomFieldListItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomFieldListItemsResult" type="tns:ResultsOfListOfCustomFieldListItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultsOfListOfCustomFieldListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="tns:ArrayOfAPICustomFieldListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAPICustomFieldListItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="APICustomFieldListItem" nillable="true" type="tns:APICustomFieldListItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="APICustomFieldListItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameOnForm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameOnReport" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Capacity" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PerGroupLimit" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVisible" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Order" type="s:int" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetCustomFieldsForRegistration">
         <s:complexType>
           <s:sequence>
@@ -1094,6 +1137,7 @@
       <s:element name="ResultsOfListOfEventWebsite" nillable="true" type="tns:ResultsOfListOfEventWebsite" />
       <s:element name="ResultsOfListOfTransaction" nillable="true" type="tns:ResultsOfListOfTransaction" />
       <s:element name="ResultsOfListOfCustomField" nillable="true" type="tns:ResultsOfListOfCustomField" />
+      <s:element name="ResultsOfListOfCustomFieldListItem" nillable="true" type="tns:ResultsOfListOfCustomFieldListItem" />
       <s:element name="ResultsOfListOfCustomFieldResponse" nillable="true" type="tns:ResultsOfListOfCustomFieldResponse" />
       <s:element name="ResultsOfBoolean" nillable="true" type="tns:ResultsOfBoolean" />
       <s:element name="ResultsOfListOfCustomReport" nillable="true" type="tns:ResultsOfListOfCustomReport" />
@@ -1282,6 +1326,15 @@
     <wsdl:part name="parameters" element="tns:GetAgendaItemsResponse" />
   </wsdl:message>
   <wsdl:message name="GetAgendaItemsTokenHeader">
+    <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldListItems" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomFieldListItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsTokenHeader">
     <wsdl:part name="TokenHeader" element="tns:TokenHeader" />
   </wsdl:message>
   <wsdl:message name="GetCustomFieldsForRegistrationSoapIn">
@@ -1549,6 +1602,15 @@
   <wsdl:message name="GetAgendaItemsHttpGetOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomField" />
   </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsHttpGetIn">
+    <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="cfID" type="s:string" />
+    <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldListItem" />
+  </wsdl:message>
   <wsdl:message name="GetCustomFieldResponsesHttpGetIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="cfID" type="s:string" />
@@ -1724,6 +1786,15 @@
   <wsdl:message name="GetAgendaItemsHttpPostOut">
     <wsdl:part name="Body" element="tns:ResultsOfListOfCustomField" />
   </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsHttpPostIn">
+    <wsdl:part name="eventID" type="s:string" />
+    <wsdl:part name="cfID" type="s:string" />
+    <wsdl:part name="filter" type="s:string" />
+    <wsdl:part name="orderBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomFieldListItemsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultsOfListOfCustomFieldListItem" />
+  </wsdl:message>
   <wsdl:message name="GetCustomFieldResponsesHttpPostIn">
     <wsdl:part name="eventID" type="s:string" />
     <wsdl:part name="cfID" type="s:string" />
@@ -1877,6 +1948,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Event Schedule</wsdl:documentation>
       <wsdl:input message="tns:GetAgendaItemsSoapIn" />
       <wsdl:output message="tns:GetAgendaItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the list items for a multiple choice Custom Field</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomFieldListItemsSoapIn" />
+      <wsdl:output message="tns:GetCustomFieldListItemsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCustomFieldsForRegistration">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a list of all custom fields available to the given registration and location</wsdl:documentation>
@@ -2048,6 +2124,11 @@
       <wsdl:input message="tns:GetAgendaItemsHttpGetIn" />
       <wsdl:output message="tns:GetAgendaItemsHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the list items for a multiple choice Custom Field</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomFieldListItemsHttpGetIn" />
+      <wsdl:output message="tns:GetCustomFieldListItemsHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetCustomFieldResponses">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all responses for an agenda item</wsdl:documentation>
       <wsdl:input message="tns:GetCustomFieldResponsesHttpGetIn" />
@@ -2172,6 +2253,11 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Event Schedule</wsdl:documentation>
       <wsdl:input message="tns:GetAgendaItemsHttpPostIn" />
       <wsdl:output message="tns:GetAgendaItemsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the list items for a multiple choice Custom Field</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomFieldListItemsHttpPostIn" />
+      <wsdl:output message="tns:GetCustomFieldListItemsHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCustomFieldResponses">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets all responses for an agenda item</wsdl:documentation>
@@ -2412,6 +2498,16 @@
       <wsdl:input>
         <soap:body use="literal" />
         <soap:header message="tns:GetAgendaItemsTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <soap:operation soapAction="http://www.regonline.com/api/GetCustomFieldListItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCustomFieldListItemsTokenHeader" part="TokenHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -2786,6 +2882,16 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <soap12:operation soapAction="http://www.regonline.com/api/GetCustomFieldListItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCustomFieldListItemsTokenHeader" part="TokenHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCustomFieldsForRegistration">
       <soap12:operation soapAction="http://www.regonline.com/api/GetCustomFieldsForRegistration" style="document" />
       <wsdl:input>
@@ -3109,6 +3215,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <http:operation location="/GetCustomFieldListItems" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCustomFieldResponses">
       <http:operation location="/GetCustomFieldResponses" />
       <wsdl:input>
@@ -3337,6 +3452,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCustomFieldListItems">
+      <http:operation location="/GetCustomFieldListItems" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetCustomFieldResponses">
       <http:operation location="/GetCustomFieldResponses" />
       <wsdl:input>
@@ -3409,10 +3533,10 @@
       <soap12:address location="https://www.regonline.com/api/default.asmx" />
     </wsdl:port>
     <wsdl:port name="RegOnline_x0020_APIHttpGet" binding="tns:RegOnline_x0020_APIHttpGet">
-      <http:address location="http://www.regonline.com/api/default.asmx" />
+      <http:address location="https://www.regonline.com/api/default.asmx" />
     </wsdl:port>
     <wsdl:port name="RegOnline_x0020_APIHttpPost" binding="tns:RegOnline_x0020_APIHttpPost">
-      <http:address location="http://www.regonline.com/api/default.asmx" />
+      <http:address location="https://www.regonline.com/api/default.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

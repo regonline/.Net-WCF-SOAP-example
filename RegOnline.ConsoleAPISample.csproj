@@ -58,7 +58,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\RegOnlineAPIProxy\default.wsdl" />
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfAttendeeMobileAppSettings.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -70,6 +72,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomField.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldListItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RegOnlineAPIProxy\RegOnline.ConsoleAPISample.RegOnlineAPIProxy.ResultsOfListOfCustomFieldResponse.datasource">

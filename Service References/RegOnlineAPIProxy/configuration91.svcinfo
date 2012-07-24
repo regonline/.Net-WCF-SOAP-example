@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="bV7/XiDm+HmFGiveSUl45qGAp1Q=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="f5EGSO+6jkrb6yutEtB21VOrBJ0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="RegOnline APISoap">
       <properties>
