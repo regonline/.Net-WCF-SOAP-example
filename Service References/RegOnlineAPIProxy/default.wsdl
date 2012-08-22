@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.regonline.com/api" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.regonline.com/api" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.regonline.com/api" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.regonline.com/api" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://www.regonline.com/api">
       <s:element name="GetRegistrationsByEventID">
@@ -198,6 +198,7 @@
             <s:sequence>
               <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EventOID" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="ParentID" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
@@ -3533,10 +3534,10 @@
       <soap12:address location="https://www.regonline.com/api/default.asmx" />
     </wsdl:port>
     <wsdl:port name="RegOnline_x0020_APIHttpGet" binding="tns:RegOnline_x0020_APIHttpGet">
-      <http:address location="https://www.regonline.com/api/default.asmx" />
+      <http:address location="http://www.regonline.com/api/default.asmx" />
     </wsdl:port>
     <wsdl:port name="RegOnline_x0020_APIHttpPost" binding="tns:RegOnline_x0020_APIHttpPost">
-      <http:address location="https://www.regonline.com/api/default.asmx" />
+      <http:address location="http://www.regonline.com/api/default.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

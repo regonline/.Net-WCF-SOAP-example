@@ -41,15 +41,15 @@ namespace RegOnline.ConsoleAPISample
 
                             #region GetEvents example
 
-                            // Call GetEvents for events with active status created after 1/1/2011, sorted by ID ascending.
+                            // Call GetEvents for events with active status created after 1/1/2012, sorted by ID ascending.
                             // With the API Token passed as an HTTP Header (above) instead of a SOAP Header, the first parameter for GetEvents below can be null.
-                            RegOnlineAPIProxy.ResultsOfListOfEvent getEventResults = service.GetEvents(null, "IsActive && AddDate >= DateTime(2011, 1, 1)", "ID ASC");
+                            RegOnlineAPIProxy.ResultsOfListOfEvent getEventResults = service.GetEvents(null, "IsActive && AddDate >= DateTime(2012, 1, 1)", "ID ASC");
 
                             if (getEventResults.Success)
                             {
                                 foreach (var result in getEventResults.Data)
                                 {
-                                    Console.WriteLine("Event: {0} (ID: {1})", result.Title, result.ID);
+                                    Console.WriteLine("Event: {0} (ID: {1}) - MediaType: {2}", result.Title, result.ID, result.MediaType);
                                 }
 
                                 Console.WriteLine(System.Environment.NewLine);
