@@ -1,4 +1,6 @@
 This is a basic example of using .Net and a WCF service reference against the RegOnline API.  To use this example, build the project and run the \bin executable.  You will be prompted for login and password.  Your API token is displayed, followed by a listing of all events with active status created after 1/1/2011, sorted by ID ascending.
 
 Updates:
+- June 2013: Added example for creating custom field responses to a list of checkbox custom fields for many registrants.  To use this example, include Program_CreateCustomFieldResponsesForManyRegistrants.cs in the project instead of Program.cs.  Values for regIDs and CFIDs variables will need updated per your needs. 
+
 - July 2012: Added example use of GetCustomFieldListItems method in conjunction with UpdateCustomFieldResponsesForRegistration for upserting a custom field response for multiple choice items
